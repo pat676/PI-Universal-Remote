@@ -5,16 +5,18 @@ bluetooth deamon.
 """
 
 import IRCommandsInterface as irci
+import FileHandler as fh
 
 SIGNALS_FILENAME = "IRSignalsTest"
 SIGNALS_DIRECTORY = "./SignalFiles/"
 SIGNALS_FILE = SIGNALS_DIRECTORY+SIGNALS_FILENAME
 
 SEPERATOR_LINE = "----------------------------------------"
-   
-signals = irci.readSignalsFile(SIGNALS_FILE)
-irci.backup(SIGNALS_FILE)
-irci.saveSignalsFile(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
+
+#Reads and does a backup of the signals file
+signals = fh.readJson(SIGNALS_FILE)
+fh.backup(SIGNALS_FILE)
+fh.saveJson(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
 
 def mainMenu():
     while True:
@@ -73,7 +75,7 @@ def addDevice():
             
         #Else add new device
         signals[deviceName] = {}
-        irci.saveSignalsFile(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
+        fh.saveJson(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
         print("Device added!")
     
 def removeDevice():
@@ -98,7 +100,7 @@ def removeDevice():
         deviceName = deviceNames[deviceNum]
         if(userConfirm("Delete device: {}".format(deviceName))):
             del signals[deviceName]
-            irci.saveSignalsFile(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
+            fh.saveJson(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
             print ("Device: {} deleted".format(deviceName))
         else:
             print("Device not deleted!")
@@ -167,7 +169,7 @@ def removeSignalFromDevice():
             signalName = signalNames[signalNum]
             if(userConfirm("Delete signal {} from device: {}".format(signalName, deviceName))):
                 del signals[deviceName][signalName]
-                irci.saveSignalsFile(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
+                fh.saveJson(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
                 print ("Signal: {} from device: {} deleted".format(signalName, deviceName))
             else:
                 print("Signal not deleted!")

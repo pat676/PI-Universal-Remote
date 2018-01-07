@@ -1,0 +1,9 @@
+2018-01-07 18:20:35,351 - FileHandler - DEBUG - Attempting to read: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:35,352 - FileHandler - DEBUG - File ./SignalFiles/IRSignalsTest read
+2018-01-07 18:20:35,353 - FileHandler - DEBUG - Performing backup of ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:35,355 - FileHandler - DEBUG - Attempting to save JSON to: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:35,356 - FileHandler - DEBUG - Saved JSON to: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:45,533 - FileHandler - DEBUG - Attempting to save JSON to: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:45,536 - FileHandler - DEBUG - Saved JSON to: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:57,172 - FileHandler - DEBUG - Attempting to save JSON to: ./SignalFiles/IRSignalsTest
+2018-01-07 18:20:57,176 - FileHandler - DEBUG - Saved JSON to: ./SignalFiles/IRSignalsTest
