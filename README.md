@@ -10,7 +10,7 @@ this project please add a comment stating so in your own code.
 
 Current status:
 
-- Should be considered pre-alpha, most importantly the bluetooth daemon used to listen for bluetooth commands
+- Should be considered pre-alpha, most importantly the bluetooth listener, used to listen for bluetooth commands
   is not implemented, so the project wont work at this stage.
 
 Setup:

@@ -44,6 +44,7 @@ An easier interface to the IRCommands and implemented saving/reading signals fro
 TODO:
 - Remove all prints to terminal and implement these as exceptions or logging instead. User interaction should only happen in RemoteUI.py
 - Combine with the IRCommands.py (in a class?)
+- Add logging
 ----------------------------------------------------------------------------
 3. RemoteUI.py
 
