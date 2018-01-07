@@ -41,7 +41,7 @@ An easier interface to the IRCommands and implemented saving/reading signals fro
 
 TODO:
 - Remove all prints to terminal and implement these as exceptions instead. User interaction should only happen in RemoteUI.py
-- Combine with the IRCommands.py in a class
+- Combine with the IRCommands.py in a class an move the loading/saving file functionallity to a seperate script
 ----------------------------------------------------------------------------
 3. RemoteUI.py
 
@@ -51,6 +51,7 @@ TODO:
 - All prints/reads to terminal should happen in this file, move this functionality 	from IRCommands.py and IRCommandsInterface.py
 - Implementent bluetooth deamon
 - Add functionality for sending a sequence of commands with a pause between each signal. Suggested file format:
+- Add the possibility to rename signals/devices
 
 sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n
 sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n

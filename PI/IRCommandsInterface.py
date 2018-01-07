@@ -123,7 +123,7 @@ Notes:
 def addSignalFromUser(directory, filename, devicename, signals):
     filepath = directory+filename
     while True:
-        name = raw_input("Plese enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
+        name = raw_input("Please enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
     
         if(name == "q"):
             return

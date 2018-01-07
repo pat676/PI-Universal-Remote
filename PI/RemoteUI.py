@@ -95,10 +95,13 @@ def removeDevice():
             return
         
         #Else valid device number
-        del signals[deviceNames[deviceNum]]
-        irci.saveSignalsFile(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
-        print ("Device: {} deleted".format(deviceNames[deviceNum]))
-        continue
+        deviceName = deviceNames[deviceNum]
+        if(userConfirm("Delete device: {}".format(deviceName))):
+            del signals[deviceName]
+            irci.saveSignalsFile(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
+            print ("Device: {} deleted".format(deviceName))
+        else:
+            print("Device not deleted!")
         
             
 def addSignalToDevice():
@@ -161,7 +164,13 @@ def removeSignalFromDevice():
                 break
             
             #Else valid singal Number
-            del signals[deviceName][signalNames[signalNum]]
+            signalName = signalNames[signalNum]
+            if(userConfirm("Delete signal {} from device: {}".format(signalName, deviceName))):
+                del signals[deviceName][signalName]
+                irci.saveSignalsFile(SIGNALS_DIRECTORY,SIGNALS_FILENAME, signals)
+                print ("Signal: {} from device: {} deleted".format(signalName, deviceName))
+            else:
+                print("Signal not deleted!")
         
     
 def startBluetoothDeamon():
@@ -200,7 +209,12 @@ def presentNumberedListAndGetUserInput(inList, infoStr):
         else:
             return num
 
-
+def userConfirm(outStr):
+    cmd = raw_input(outStr + " Y/N\n")
+    if( cmd == "Y" or cmd =="y"):
+        return True
+    else:
+        return False
 #irci.playback(signals["Testdevice1"]["1"])
 mainMenu()
 
