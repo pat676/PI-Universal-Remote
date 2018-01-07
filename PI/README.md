@@ -31,29 +31,53 @@ Download all files and run Remote.py to start adding/removing devices and signal
 This module uses pigpio to read and playback IR Signals. It is working for the intended use, but hasn't been tested thouroghly. Make sure you run sudo pigpiod before use.
 
 TODO:
-- Remove all prints to terminal and implement these as exceptions or move them to RemoteUI instead. User interaction should only happen in RemoteUI.py
+- Remove all prints to terminal and implement these as exceptions, logs or move them to RemoteUI instead. User interaction should only happen in RemoteUI.py
 - Run sudo pigpiod directly from script
-- Implement as a class
+- Implement as a class?
+- Edit it to conform to the commenting and logging style of the project
+
 ----------------------------------------------------------------------------
 2. IRCommandsInterface.py
 
 An easier interface to the IRCommands and implemented saving/reading signals from/to json file. The format used for is a dict: {deviceName:signalName:[signal]}. The module is working for the intended use, but hasn't been tested thoroughly.
 
 TODO:
-- Remove all prints to terminal and implement these as exceptions instead. User interaction should only happen in RemoteUI.py
-- Combine with the IRCommands.py in a class an move the loading/saving file functionallity to a seperate script
+- Remove all prints to terminal and implement these as exceptions or logging instead. User interaction should only happen in RemoteUI.py
+- Combine with the IRCommands.py (in a class?)
 ----------------------------------------------------------------------------
 3. RemoteUI.py
 
 This is the terminal UI for creating/removing signals and devices from the signals file. Most functionality is implemented but not tested. It should also start the bluetooth daemon for bluetooth to IR communication.
 
 TODO:
-- All prints/reads to terminal should happen in this file, move this functionality 	from IRCommands.py and IRCommandsInterface.py
-- Implementent bluetooth deamon
-- Add functionality for sending a sequence of commands with a pause between each signal. Suggested file format:
+- All prints/reads to terminal should happen in this file, move this functionality from IRCommands.py and IRCommandsInterface.py
+- Implementent bluetoothListener
 - Add the possibility to rename signals/devices
+----------------------------------------------------------------------------
+4. FileHandler.py
 
-sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n
-sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n
+Functions for reading/writing to/from files
 
-The newline symoble will signify the end of a sequence. This format is chosen instead of json so it will be easy to manually the sequences in a text file. If sequence creation is implemented in terminal UI or GUI instead json format will be preferred. 
+TODO:
+- Needs testing
+- saveJson() will return false on IOError, should raise a customException and let other parts of the program handle this (Should ultimatly abort program)
+----------------------------------------------------------------------------
+5. CustomExceptions 
+
+TODO:
+- Up to date, implement more exceptions as needed
+----------------------------------------------------------------------------
+6. Logger.py
+
+Implemented for easy adjustment of logging level and filepaths. All constants regarding logging should be contained in this file
+
+TODO:
+- Up to date.
+----------------------------------------------------------------------------
+7. BluetoothListener.py
+
+This is the module that will normally be running to listen for bluetooth commands and transmit these over IR
+
+TODO:
+- Almost everything
+ 

@@ -5,10 +5,10 @@ Functions for reading/ writing to and from files
 import os
 import json
 import logging
+from CustomExceptions import *
+from Logger import *
 
-LOGS_DIRECTORY = "./LOGS/"
-LOGS_FILENAME  = "main.log"
-LOGS_LEVEL     = logging.DEBUG
+logger = getLogger(LOGS_LEVEL, __name__, LOGS_DIRECTORY, FILEHANDLER_LOGS_FILENAME)
 
 """
 Does a backup of the given file.
@@ -36,7 +36,7 @@ def backup(filepath, maxBackups = 3):
 
     try:
         os.rename(os.path.realpath(filepath), os.path.realpath(filepath)+".bak1")
-    except:
+    except OSError:
         logger.warning("No backup of {} was possible".format(filepath))
         return False
         pass
@@ -58,8 +58,8 @@ def readJson(filepath):
         f = open(filepath, "r")
         content = json.load(f)
         f.close()
-    except:
-        logger.debug("File {} could not be read, return empty dict".format(filepath))
+    except IOError:
+        logger.info("File {} could not be read, return empty dict".format(filepath), exc_info = True)
         content = {}
         
     return content
@@ -86,12 +86,12 @@ def saveJson(directory, filename, data):
     if not os.path.isdir(directory):
         try:
             os.mkdir(directory)
-        except:
+        except OSError:
             logger.warning("Can't create directory: {} for saving".format(directory))
             return False
     try:
         f = open(filepath, "w")
-    except:
+    except IOError:
         logger.warning("Can't open file: {} for saving".format(filepath))
         return False
     
@@ -103,29 +103,63 @@ def saveJson(directory, filename, data):
     f.close()
     logger.debug("Saved JSON to: {}".format(filepath))
     return True
-    
-"""
-Returns a logger saving log to file
 
-Innput:
-    level       (Logger level): Severity of the logger
-    name:       (String):       Name of the logger
-    directory   (String):       The directory of the log file
-    filename    (String):       The name of the logfile
+"""
+Loads a sequence file containing a sequence of commands to be sent over IR.
+
+Input:
+    filepath    (String): The path of the sequence file
 Output:
-    The logger
-"""
-def getLogger(level, name, directory, filename):
-    if not os.path.isdir(directory):
-        os.mkdir(directory)
-        
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
-    handler = logging.FileHandler(directory+filename)
-    handler.setLevel(level)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    return logger
+    Returns the sequences dict if sucsessfull.
+Notes:
+The sequence file should have the format:
 
-logger = getLogger(LOGS_LEVEL, __name__, LOGS_DIRECTORY, LOGS_FILENAME)
+sequenceName1:device1:signal1:waittime:device2:signal2:waittime.....
+sequenceName2:device1:signal1:waittime:device2:signal2:waittime.....
+.....
+
+waittime is the time in seconds before next transmission
+
+"""
+
+def loadSequences(filepath):
+    logger.debug("Attempting to read sequence file: {}".format(filepath))
+    sequences = {}
+    
+    #Opens file
+    try:
+        file = open(filepath, "r")
+    except IOError:
+        logger.warning("Cant open sequencefile: {}".format(filepath))
+        return False
+    logger.debug("Succsesfully read sequence file: {}".format(filepath))
+    
+    currentLine = 0
+    #Read all lines, each line is one sequence
+    for line in file:
+        currentLine += 1
+        cmds = line.split(":")
+        sequences[cmds[0]] = list()
+        i = 1
+        #Create an array of all commands in that sequence
+        while(i<len(cmds)):
+            try:
+                sequences[cmds[0]].append(cmds[i])
+                sequences[cmds[0]].append(cmds[i+1])
+                sequences[cmds[0]].append(float(cmds[i+2]))
+            except IndexError:
+                msg = "Error in sequence file: {} at line {}, wrong number of arguments".format(filepath, currentLine)
+                logger.error(msg, exc_info=True)
+                raise SequenceFormatException(msg)
+            except ValueError:
+                msg = "Error in sequence file: {} at line {}, word: {}, waittime not a valid number".format(filepath, currentLine, i+2+1)
+                logger.error(msg , exc_info=True)
+                raise SequenceFormatException(msg)
+            i += 3
+    logger.debug("Succsesfully parsed sequences from file: {} into dictionary".format(filepath))
+    return sequences
+    
+
+
+
+
