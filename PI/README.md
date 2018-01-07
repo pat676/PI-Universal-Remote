@@ -5,14 +5,14 @@ This folder contains the software part for the pi.
 setup:
 
 If you are using a raspberry pi with bluetooth, the UART serial interface that we want to use for 
-comunication with the HM-10 bluetooth device is used by the raspberry pis built in bluetooth device. 
+communication with the HM-10 bluetooth device is used by the raspberry pis built in bluetooth device. 
 There are a lot of solutions to this problem, but since i am not using the built in bluetooth i chose
 to disable the built in device. This can be done by opening the terminal and entering:
 
 cd /boot/
 sudo nano config.txt
 
-use the arrows to navigate to the bottomn of the file and add the two lines:
+use the arrows to navigate to the bottom of the file and add the two lines:
 
 dtoverlay=pi3-disable-bt
 enable_uart=1
@@ -48,7 +48,7 @@ TODO:
 
 An easier interface to the IRCommands and implemented saving/reading signals from/to json file. The format
 used for is a dict: {deviceName:signalName:[signal]}. The module is working for the intended use, but 
-hasn't been tested thouroghly.
+hasn't been tested thoroughly.
 
 TODO:
 - Remove all prints to terminal and implement these as exceptions instead. User interaction should only
@@ -57,11 +57,11 @@ TODO:
 ----------------------------------------------------------------------------
 3. RemoteUI.py
 
-This is the terminal UI for creating/removing signals and devices from the signals file. Most functionallity
-is implemented but not tested. It should also start the bluetoothDeamon for bluetooth to IR communication.
+This is the terminal UI for creating/removing signals and devices from the signals file. Most functionality
+is implemented but not tested. It should also start the bluetooth daemon for bluetooth to IR communication.
 
 TODO:
-- All prints/reads to terminal should happen in this file, move this functionallity from IRCommands.py and 
+- All prints/reads to terminal should happen in this file, move this functionality from IRCommands.py and 
   IRCommandsInterface.py
 - Implementent bluetooth deamon
 - Add functionality for sending a sequence of commands with a pause between each signal. Suggested file 
@@ -69,9 +69,8 @@ TODO:
 
 sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n
 sequencename:devicename:Signalname:waittime:devicename:signalname:waittime:.......\n
-......
 
-newline will signify the end of a sequence. This format is choosen instead of json so it will be easy to 
+newline will signify the end of a sequence. This format is chosen instead of json so it will be easy to 
 manually the sequences in a text file. If sequence creation is implemented in terminal UI or GUI instead 
-json format will be prefered. 
+json format will be preferred. 
 ----------------------------------------------------------------------------
