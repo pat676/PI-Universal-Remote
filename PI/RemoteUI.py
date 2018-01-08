@@ -9,12 +9,15 @@ import FileHandler as fh
 import BluetoothListener as bl
 from Logger import *
 
-SIGNALS_FILENAME = "IRSignalsTest"
+SIGNALS_FILENAME = "IRSignals"
 SIGNALS_DIRECTORY = "./SignalFiles/"
 SEQUENCES_FILENAME = "Sequences"
 SEQUENCES_DIRECTORY = "./SignalFiles/"
-SEQUENCES_FILE = SEQUENCES_DIRECTORY+SEQUENCES_FILENAME
+BLUETOOTH_SIGNALS_FILENAME =  "BluetoothSignals"
+BLUETOOTH_SIGNALS_DIRECTORY = "./SignalFiles/"
 SIGNALS_FILE = SIGNALS_DIRECTORY+SIGNALS_FILENAME
+SEQUENCES_FILE = SEQUENCES_DIRECTORY+SEQUENCES_FILENAME
+BLUETOOTH_SIGNALS_FILE = BLUETOOTH_SIGNALS_DIRECTORY+BLUETOOTH_SIGNALS_FILENAME
 
 SEPERATOR_LINE = "----------------------------------------"
 
@@ -36,18 +39,19 @@ def mainMenu():
                     "2. Remove devices\n"+\
                     "3. Add Signal to device\n"+\
                     "4. Remove Signal from device\n"+\
-                    "5. Start bluetooth deamon\n"+\
-                    "6. Quit\n"
+                    "5. Start bluetooth listener\n"+\
+                    "6. Test if all bluetooth signals have a matching IR-Signal or sequence\n"+\
+                    "7. Quit\n"
         
         #Reading user input
         try:
             choice = input(menuText)
             logger.debug("User input: {} accepted".format(choice))
         except NameError:
-            logger.debug("User input: {} not accepted".format(choice))
+            logger.debug("User input not accepted")
             print("Command invalid, please enter a number between 1 and 6")
             continue
-        if(choice == 6):
+        if(choice == 7):
             logger.debug("User exited")
             return
         
@@ -57,7 +61,8 @@ def mainMenu():
                     2: removeDevice,\
                     3: addSignalToDevice,\
                     4: removeSignalFromDevice,\
-                    5: startBluetoothDeamon,\
+                    5: startBluetoothListener,\
+                    6: testIfSignalsMatch\
         }
         func = switcher.get(choice, False)
         if func == False:
@@ -152,8 +157,11 @@ def addSignalToDevice():
             return
         
         #Else valid device Number, add signal. This function also saves the signals file
-        logging.debug("Calling the IRCommands module for adding a new device")
-        irci.addSignalFromUser(SIGNALS_DIRECTORY, SIGNALS_FILENAME, deviceNames[deviceNum], signals)
+        deviceName = deviceNames[deviceNum]
+        logging.debug("Adding a new device: {}".format(deviceName))
+        irci.addSignalFromUser(deviceName, signals)
+        logging.debug("Saving signals dict")
+        fh.saveJson(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
         
 def removeSignalFromDevice():
     while(True):
@@ -209,10 +217,14 @@ def removeSignalFromDevice():
                 logging.debug("User aborted deletion of {} from {}".format(signalName, deviceName))
                 print("Signal not deleted!")
         
-    
-def startBluetoothDeamon():
-    print("Not implemented")
+#Stats the bluetooth listener
+def startBluetoothListener():
+    bl.mainLoop(SIGNALS_FILE, SEQUENCES_FILE, BLUETOOTH_SIGNALS_FILE)
 
+#Runs a test to check if the read bluetooth signals match with read IR-Signals and sequences
+def testIfSignalsMatch():
+    bl.testIfSignalsMatch()
+    
 """
 Prints a numbered list to terminal and returns an integer respons from user
 
@@ -261,7 +273,6 @@ def userConfirm(outStr):
         logging.debug("User did not confirm: {}".format(cmd))
         return False
 
-#bl.main(SIGNALS_FILE, SEQUENCES_FILE)
 mainMenu()
 
 

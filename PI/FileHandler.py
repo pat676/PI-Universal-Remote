@@ -5,7 +5,6 @@ Functions for reading/ writing to and from files
 import os
 import json
 import logging
-from CustomExceptions import *
 from Logger import *
 
 logger = getLogger(LOGS_LEVEL, __name__, LOGS_DIRECTORY, FILEHANDLER_LOGS_FILENAME)
@@ -37,7 +36,7 @@ def backup(filepath, maxBackups = 3):
     try:
         os.rename(os.path.realpath(filepath), os.path.realpath(filepath)+".bak1")
     except OSError:
-        logger.warning("No backup of {} was possible".format(filepath))
+        logger.info("No backup of {} was possible".format(filepath))
         return False
         pass
     return True
@@ -132,34 +131,117 @@ def loadSequences(filepath):
     except IOError:
         logger.warning("Cant open sequencefile: {}".format(filepath))
         return False
-    logger.debug("Succsesfully read sequence file: {}".format(filepath))
+    logger.debug("Successfully read sequence file: {}".format(filepath))
     
     currentLine = 0
+    
     #Read all lines, each line is one sequence
     for line in file:
+        line = line.rstrip() #Remove trailing whitespace
         currentLine += 1
+        
+        #Skips comments and empty lines
+        if(line[0] == "#" or line == ""):
+            continue
+        
         cmds = line.split(":")
+        
+        #Check if sequence name allready exists in dict
+        if(cmds[0] in sequences):
+            logger.warning("sequences file contained sequence: {} more than once, only the last can be used".format(cmds[0]))
         sequences[cmds[0]] = list()
+        
+        noError = True
         i = 1
         #Create an array of all commands in that sequence
-        while(i<len(cmds)):
+        while(i<len(cmds) and noError):
+            
             try:
                 sequences[cmds[0]].append(cmds[i])
                 sequences[cmds[0]].append(cmds[i+1])
                 sequences[cmds[0]].append(float(cmds[i+2]))
+            
+            #Sequence format error, skipping sequence
             except IndexError:
-                msg = "Error in sequence file: {} at line {}, wrong number of arguments".format(filepath, currentLine)
+                msg = "Error in sequence file: {} at line {}, wrong number of arguments, skipping sequence".format(filepath, currentLine)
                 logger.error(msg, exc_info=True)
-                raise SequenceFormatException(msg)
+                sequences.pop(cmds[0])
+                noError = False
+            
+            #Sequence format error, skipping sequence
             except ValueError:
                 msg = "Error in sequence file: {} at line {}, word: {}, waittime not a valid number".format(filepath, currentLine, i+2+1)
                 logger.error(msg , exc_info=True)
-                raise SequenceFormatException(msg)
+                sequences.pop(cmds[0])
+                noError = False
+                
             i += 3
-    logger.debug("Succsesfully parsed sequences from file: {} into dictionary".format(filepath))
+            
+    logger.debug("Successfully parsed sequences from file: {} into dictionary".format(filepath))
     return sequences
     
+def loadBluetoothSignals(filepath):
+    logger.debug("Attempting to read Bluetooth signals file: {}".format(filepath))
+    bluetoothSignals = {}
+    
+    #Opens file
+    try:
+        file = open(filepath, "r")
+    except IOError:
+        logger.warning("Cant open Bluetooth signals file: {}".format(filepath))
+        return False
+    logger.debug("Successfully read Bluetooth signals file: {}".format(filepath))
+    
+    #Reads all lines
+    logger.debug("Starting to add bluetooth signals")
+    currentLine = 0
+    for line in file:
+        line = line.rstrip() #Remove trailing whitespace
+        currentLine += 1
+        
+        #Skip comments and empty lines
+        if(line[0] == "#" or line == "" or line == "\n"):
+            continue
+        
+        args = line.split(":")
+        
+        #Checking if format is correct
+        if(not bluetoothSignalFormatIsCorrect(args)):
+            logger.error("Incorrect format at line: {}, skipping signal: {}".format(currentLine, args[0]))
+            continue
+        
+        #Check if Bluetooth signal allready exists in dict
+        if(args[0] in bluetoothSignals):
+            logger.warning("Bluetooth signals file contained signal: {} more than once, last at line: {} only the last can be used".format(args[0], currentLine))
+        
+        #Adding Bluetooth signal
+        logger.debug("Adding bluetooth signal: {}".format(args))
+        bluetoothSignals[args[0]] = list()
+        bluetoothSignals[args[0]].append(args[1])
+        bluetoothSignals[args[0]].append(args[2])
+        if(args[1] == "sig"):
+            bluetoothSignals[args[0]].append(args[3])
+    return bluetoothSignals
 
-
-
-
+def bluetoothSignalFormatIsCorrect(args):
+    #Check length
+    if((not len(args) == 4) and (not len(args) == 3)):
+        logger.error("Bluetooth signal: {} incorrect, number of arguments should be 3 or 4, but is: {}".format(args[0], len(args)))
+        return False
+        
+    #Check first if first argument equals seq or sig
+    if((not args[1] == "sig") and (not args[1] == "seq")):
+        logger.error("Bluetooth signal: {} incorrect, first argument should be sig or seq, but is: {}".format(args[0], len(args)))
+        return False
+    
+    #Check if sig and length != 4
+    if((args[1] == "sig") and (not len(args) == 4)):
+        logger.error("Bluetooth signal: {} incorrect, arguments[1] is sig, meaning that number of arguments should be 4, but number of arguments are: {}".format(args[0], len(args)))
+        return False
+    
+    #Check if seq and length != 3
+    if((args[1] == "seq") and (not len(args) == 3)):
+        logger.error("Bluetooth signal: {} incorrect, arguments[1] is seq, meaning that number of arguments should be 3, but number of arguments are: {}".format(args[0], len(args)))
+        return False
+        
+    return True

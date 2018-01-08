@@ -31,8 +31,7 @@ Notes:
     parameter devicename is assumed to exist in the signals dictonary, else and exception
     will be thrown.
 """
-def addSignalFromUser(directory, filename, devicename, signals):
-    filepath = directory+filename
+def addSignalFromUser(devicename, signals):
     while True:
         name = raw_input("Please enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
     
@@ -43,7 +42,6 @@ def addSignalFromUser(directory, filename, devicename, signals):
             newSignal = ir.read(GPIO_IN, name)
             if newSignal:
                 signals[devicename].update(newSignal)
-                fh.saveJson(directory, filename, signals)
             
 def playback(signal):
     ir.playback(GPIO_OUT, signal)

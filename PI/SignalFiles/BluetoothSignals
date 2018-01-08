@@ -1,0 +1,59 @@
+# Add the bluetooth signals to this file.
+# Lines starting with "#" will be ignored
+#
+# Format of file:
+#
+# For running one IR Signal
+# bluetoothSignal:sig:deviceName:signalName
+#
+# The first argument is the bluetooth signal, f.eks: 1000 (Or any string)
+# The second argument indicates if it is a signal or sequence sig/seq
+# The two last arguments indicate device name and signal name
+#
+# For running a sequence of IR Signals
+# bluetoothSignal:seq:sequenceName
+#
+# The first argument is the bluetooth signal, for example: 1000 (Or any string)
+# The second argument indicates if it is a signal or sequence sig/seq
+# The last argument is the sequence name
+#
+# The next lines are a suggestion for a bluetooth protocol and can be altered
+#
+# TVSignals: 1000-1999
+# RecieverSignals: 2000-2999
+2100:sig:Reciever:On
+2101:sig:Reciever:Off
+2201:sig:Reciever:Up
+2202:sig:Reciever:Down
+2203:sig:Reciever:Left
+2204:sig:Reciever:Right
+2205:sig:Reciever:VolUp
+2206:sig:Reciever:VolDown
+2209:sig:Reciever:Enter
+2210:sig:Reciever:Menu
+#
+# TVDekoderSignals: 3000-3999
+# AppleTVSignals: 4000-4999
+4100:sig:AppleTV:Home
+4201:sig:AppleTV:Up
+4202:sig:AppleTV:Down
+4203:sig:AppleTV:Left
+4204:sig:AppleTV:Right
+4209:sig:AppleTV:Enter
+4210:sig:AppleTV:Menu
+#
+# ProjectorSignals: 5000-5999
+5100:sig:Projector:On
+5101:sig:Projector:Off
+5201:sig:Projector:Up
+5202:sig:Projector:Down
+5203:sig:Projector:Left
+5204:sig:Projector:Right
+5210:sig:Projector:Menu
+#
+# X-BoxSignals: 6000-6999
+# Canvas:7000-7999
+7000:sig:Canvas:Down
+7001:sig:Canvas:Up
+#
+# SequenceSignals: 9000-9999
