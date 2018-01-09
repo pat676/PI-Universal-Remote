@@ -3,7 +3,7 @@ import os
 
 #Logging
 
-LOGS_LEVEL = logging.DEBUG #Change to logging.DEBUG for more informtion
+LOGS_LEVEL = logging.WARNING #Change to logging.DEBUG for more informtion
 logging.basicConfig(level=LOGS_LEVEL) #Uncomment for logging to terminal
 LOGS_DIRECTORY = "./LOGS/"
 BLUETOOTHLISTENER_LOGS_FILENAME  = "BluetoothListener.log"

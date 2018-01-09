@@ -1,6 +1,6 @@
 Raspberry Pi:
 
-This folder contains the software part for the pi.
+This folder contains the software part for the pi. It is written for Python 3
 
 setup:
 
@@ -15,6 +15,7 @@ dtoverlay=pi3-disable-bt
 
 enable_uart=1
 
+
 press:
 ctrl+x
 Y
@@ -24,54 +25,56 @@ to save the changes.
 This might be different in other PI or OS versions.
 
 Usage:
-Download all files and run Remote.py to start adding/removing devices and signals. The interface is crude at best, but it should be easy to use and do the trick. Signals will be saved in json format at the directory and filename specified by the SIGNALS_FILENAME and SIGNALS_DIRECTORY constants at the top of RemoteUI.py. Change theese as you wish. A backup of the signals file will be created every time you run the Remote.py
+
+Bluetooth signals have to be defined manually. An example file commenting how to do this can be found in the SignalFiles directory
+
+Sequences of several IR-Signals can be defined manually in the sequence file found in the SignalFiles directory, but the program will run without.
+
+Run with:
+$:python3 RemoteUI.py
+
+1) Add devices IR-Signals with the menu
+2) Run a test (currently option 6 in the main menu) to check that all bluetooth signals you defined in the
+   bluetooth signals file have a mathing IR-Signal or sequence.
+3) Run the bluetooth listener(Currently option 5 in the main menu)
 
 ----------------------------------------------------------------------------
-1.IRCommands.py
+1.IRInterface.py
 
 This module uses pigpio to read and playback IR Signals. It is working for the intended use, but hasn't been tested thouroghly. Make sure you run sudo pigpiod before use.
 
 TODO:
 - Remove all prints to terminal and implement these as exceptions, logs or move them to RemoteUI instead. User interaction should only happen in RemoteUI.py
 - Run sudo pigpiod directly from script
-- Implement as a class?
 - Edit it to conform to the commenting and logging style of the project
 
 ----------------------------------------------------------------------------
-2. IRCommandsInterface.py
-
-An easier interface to the IRCommands and implemented saving/reading signals from/to json file. The format used for is a dict: {deviceName:signalName:[signal]}. The module is working for the intended use, but hasn't been tested thoroughly.
-
-TODO:
-- Remove all prints to terminal and implement these as exceptions or logging instead. User interaction should only happen in RemoteUI.py
-- Combine with the IRCommands.py (in a class?)
-- Add logging
-----------------------------------------------------------------------------
-3. RemoteUI.py
+2. RemoteUI.py
 
 This is the terminal UI for creating/removing signals and devices from the signals file. Most functionality is implemented but not tested. It should also start the bluetooth daemon for bluetooth to IR communication.
 
 TODO:
 - All prints/reads to terminal should happen in this file, move this functionality from IRCommands.py and IRCommandsInterface.py
-- Implementent bluetoothListener
 - Add the possibility to rename signals/devices
+- Add user test to check if every IRSignal in every sequence matches an IRSignal in the IR Signals file
+- Add user test to check hardware connections
+
 ----------------------------------------------------------------------------
-4. FileHandler.py
+3. FileHandler.py
 
 Functions for reading/writing to/from files
 
 TODO:
-- Needs testing
-- saveJson() will return false on IOError, should raise a customException and let other parts of the program handle this (Should ultimatly abort program)
+- Add test functions
 ----------------------------------------------------------------------------
-5. Logger.py
+4. Logger.py
 
 Implemented for easy adjustment of logging level and filepaths. All constants regarding logging should be contained in this file
 
 TODO:
 - Up to date.
 ----------------------------------------------------------------------------
-6. BluetoothListener.py
+5. BluetoothListener.py
 
 This is the module that will normally be running to listen for bluetooth commands and transmit these over IR
 
