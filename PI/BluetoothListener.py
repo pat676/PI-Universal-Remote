@@ -3,7 +3,7 @@ import FileHandler as fh
 import logging
 import time
 
-import IRCommandsInterface as irci
+import IRInterface as iri
 from Logger import *
 
 logger = fh.getLogger(LOGS_LEVEL, __name__, LOGS_DIRECTORY, BLUETOOTHLISTENER_LOGS_FILENAME)
@@ -151,7 +151,7 @@ def runIRSignal(deviceName, signalName, repeats = 1, repeatSleepTime = 0):
     
     if (deviceName in IRSignals) and (signalName in IRSignals[deviceName]):
         for i in range(0, repeats):
-            irci.playback(IRSignals[deviceName][signalName])
+            iri.playback(IRSignals[deviceName][signalName])
             time.sleep(repeatSleepTime)
     else:
         logger.error("Could not find IRSignal: {}, {}".format(deviceName, signalName))

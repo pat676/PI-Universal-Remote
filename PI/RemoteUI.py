@@ -4,7 +4,7 @@ bluetooth deamon.
 
 """
 
-import IRCommandsInterface as irci
+import IRInterface as iri
 import FileHandler as fh
 import BluetoothListener as bl
 from Logger import *
@@ -47,7 +47,7 @@ def mainMenu():
         try:
             choice = int(input(menuText))
             logger.debug("User input: {} accepted".format(choice))
-        except NameError:
+        except ValueError:
             logger.debug("User input not accepted")
             print("Command invalid, please enter a number between 1 and 6")
             continue
@@ -159,7 +159,7 @@ def addSignalToDevice():
         #Else valid device Number, add signal. This function also saves the signals file
         deviceName = deviceNames[deviceNum]
         logging.debug("Adding a new device: {}".format(deviceName))
-        irci.addSignalFromUser(deviceName, signals)
+        iri.addSignalFromUser(deviceName, signals)
         logging.debug("Saving signals dict")
         fh.saveJson(SIGNALS_DIRECTORY, SIGNALS_FILENAME, signals)
         
@@ -253,14 +253,14 @@ def presentNumberedListAndGetUserInput(inList, infoStr):
         try:
             num = int(input(infoStr))
             num -= 1
-        except NameError:
+        except ValueError:
             logging.debug("User input not a valid number, returning", exc_info = True)
             return -1
         if(num <0 or num > len(inList)):
             logging.debug("User input: {} out of range, (len(inList) = {}".format(num, len(inList)))
             return -1
         else:
-            logging.debug("User input: {} was valid".format)
+            logging.debug("User input: {} was valid".format(num))
             return num
 
 def userConfirm(outStr):

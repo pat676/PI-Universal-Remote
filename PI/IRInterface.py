@@ -1,7 +1,4 @@
 """
-This file should only be altered or used by advanced users, use the IRCommandsInterface
-instead
-
 This is an copied and somewhat modified version of the example project located here:
 http://abyz.me.uk/rpi/pigpio/examples.html#Python_irrp_py
     
@@ -75,7 +72,12 @@ import os
 import argparse
 
 import pigpio # http://abyz.co.uk/rpi/pigpio/python.html
-   
+import FileHandler as fh
+
+#Pins to recieve (GPIO_IN) and send (GPIO_OUT) IR Signals
+GPIO_IN = 26
+GPIO_OUT = 21
+
 GLITCH     = 100
 PRE_MS     = 200
 POST_MS    = 15
@@ -323,7 +325,7 @@ def cbf(GPIO, level, tick):
     
     
     
-def read(GPIO, signalName):
+def read(signalName, GPIO=GPIO_IN):
     global fetching_code, pi, records, last_tick, in_code, code
     records = {}
     pi = pigpio.pi() # Connect to Pi.
@@ -384,7 +386,39 @@ def read(GPIO, signalName):
     pi.stop() # Disconnect from Pi.
     return records
     
-def playback(GPIO, signal):
+"""
+Starts a loop reading new signals from user, the signals will be added to
+signals[devicename] and the signals dict will be saved after each succsesfully
+read signal.
+
+Input:
+    directory   (String): The directory of the file storing the signals
+    filename    (String): The name of the file storing the signals
+    devicename  (String): The device where the signal should be added
+    signals     (Nested dict {devicenames:signalnames:[signal])
+                The dictonary containing all signals
+                
+Output:
+    None
+    
+Notes:
+    parameter devicename is assumed to exist in the signals dictonary, else and exception
+    will be thrown.
+"""
+def addSignalFromUser(devicename, signals):
+    while True:
+        name = input("Please enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
+    
+        if(name == "q"):
+            return
+        
+        else:
+            newSignal = read(name, GPIO_IN)
+            if newSignal:
+                signals[devicename].update(newSignal)
+            
+
+def playback(signal, GPIO = GPIO_OUT):
     
     global pi
        

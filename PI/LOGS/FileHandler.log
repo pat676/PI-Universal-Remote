@@ -1135,3 +1135,20 @@ FileNotFoundError: [Errno 2] No such file or directory: './SignalFiles/IRSignals
 2018-01-09 21:21:27,764 - FileHandler - DEBUG - Adding bluetooth signal: ['7000', 'sig', 'Canvas', 'Down']
 2018-01-09 21:21:27,766 - FileHandler - DEBUG - Adding bluetooth signal: ['7001', 'sig', 'Canvas', 'Up']
 2018-01-09 21:21:27,767 - FileHandler - DEBUG - Adding bluetooth signal: ['9000', 'seq', 'AppleTVProjector']
+2018-01-09 21:33:52,220 - FileHandler - DEBUG - Reading Json: ./SignalFiles/IRSignals
+2018-01-09 21:33:52,223 - FileHandler - DEBUG - Performing backup of ./SignalFiles/IRSignals, maxBackups: 3
+2018-01-09 21:33:52,226 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:34:03,228 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:34:14,010 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:34:27,202 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:34:35,170 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:36:52,439 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:37:33,864 - FileHandler - DEBUG - Reading Json: ./SignalFiles/IRSignals
+2018-01-09 21:37:33,868 - FileHandler - DEBUG - Performing backup of ./SignalFiles/IRSignals, maxBackups: 3
+2018-01-09 21:37:33,871 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:38:12,913 - FileHandler - DEBUG - Reading Json: ./SignalFiles/IRSignals
+2018-01-09 21:38:12,917 - FileHandler - DEBUG - Performing backup of ./SignalFiles/IRSignals, maxBackups: 3
+2018-01-09 21:38:12,920 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals
+2018-01-09 21:38:18,647 - FileHandler - DEBUG - Reading Json: ./SignalFiles/IRSignals
+2018-01-09 21:38:18,651 - FileHandler - DEBUG - Performing backup of ./SignalFiles/IRSignals, maxBackups: 3
+2018-01-09 21:38:18,654 - FileHandler - DEBUG - Saving JSON to: ./SignalFiles/IRSignals

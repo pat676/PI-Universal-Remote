@@ -168,3 +168,48 @@
 2018-01-09 21:21:26,077 - __main__ - DEBUG - Attempting to read and backup signals file
 2018-01-09 21:21:26,125 - __main__ - DEBUG - Running main menu
 2018-01-09 21:21:27,722 - __main__ - DEBUG - User input: 5 accepted
+2018-01-09 21:33:52,219 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-09 21:33:52,231 - __main__ - DEBUG - Running main menu
+2018-01-09 21:33:54,906 - __main__ - DEBUG - User input: 3 accepted
+2018-01-09 21:33:58,979 - __main__ - DEBUG - Running main menu
+2018-01-09 21:34:00,105 - __main__ - DEBUG - User input: 1 accepted
+2018-01-09 21:34:00,107 - __main__ - DEBUG - Running addDevice Menu
+2018-01-09 21:34:03,226 - __main__ - DEBUG - Adding new device: Testdevice1
+2018-01-09 21:34:03,238 - __main__ - DEBUG - Running addDevice Menu
+2018-01-09 21:34:04,097 - __main__ - DEBUG - User exited to main menu
+2018-01-09 21:34:04,099 - __main__ - DEBUG - Running main menu
+2018-01-09 21:34:05,321 - __main__ - DEBUG - User input: 3 accepted
+2018-01-09 21:34:29,250 - __main__ - DEBUG - Running main menu
+2018-01-09 21:34:30,705 - __main__ - DEBUG - User input: 4 accepted
+2018-01-09 21:34:37,802 - __main__ - DEBUG - Running main menu
+2018-01-09 21:34:40,905 - __main__ - DEBUG - User input: 2 accepted
+2018-01-09 21:34:40,906 - __main__ - DEBUG - Running removeDevice menu
+2018-01-09 21:36:52,448 - __main__ - DEBUG - Running removeDevice menu
+2018-01-09 21:37:33,863 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-09 21:37:33,876 - __main__ - DEBUG - Running main menu
+2018-01-09 21:37:37,613 - __main__ - DEBUG - User input: 4 accepted
+2018-01-09 21:37:53,598 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:12,912 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-09 21:38:12,925 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:18,646 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-09 21:38:18,658 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:20,052 - __main__ - DEBUG - User input not accepted
+2018-01-09 21:38:20,054 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:23,004 - __main__ - DEBUG - User input: 9 accepted
+2018-01-09 21:38:23,005 - __main__ - DEBUG - User entered invalid number in main menu: 9
+2018-01-09 21:38:23,007 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:26,404 - __main__ - DEBUG - User input: 1 accepted
+2018-01-09 21:38:26,406 - __main__ - DEBUG - Running addDevice Menu
+2018-01-09 21:38:28,724 - __main__ - DEBUG - User exited to main menu
+2018-01-09 21:38:28,725 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:30,277 - __main__ - DEBUG - User input: 2 accepted
+2018-01-09 21:38:30,278 - __main__ - DEBUG - Running removeDevice menu
+2018-01-09 21:38:32,766 - __main__ - DEBUG - Running removeDevice menu
+2018-01-09 21:38:34,472 - __main__ - DEBUG - Running removeDevice menu
+2018-01-09 21:38:35,877 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:38,356 - __main__ - DEBUG - User input: 4 accepted
+2018-01-09 21:38:46,069 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:48,884 - __main__ - DEBUG - User input: 6 accepted
+2018-01-09 21:38:48,889 - __main__ - DEBUG - Running main menu
+2018-01-09 21:38:59,212 - __main__ - DEBUG - User input: 7 accepted
+2018-01-09 21:38:59,213 - __main__ - DEBUG - User exited

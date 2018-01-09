@@ -1402,3 +1402,5 @@
 2018-01-09 21:22:31,365 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
 2018-01-09 21:22:31,366 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
 2018-01-09 21:22:31,367 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:38:48,885 - BluetoothListener - INFO - Testing if all defined bluetooth signals have a matchin IR-Signal or sequence...
+2018-01-09 21:38:48,887 - BluetoothListener - INFO - All bluetooth signals were matched with IR-Signals and Sequences
