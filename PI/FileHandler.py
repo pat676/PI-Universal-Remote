@@ -17,11 +17,10 @@ Input:
     maxBackups  (Int)  : Maximum number of backups kept at once
     
 Output:
-    Returns True if at least one backup is made, false else
+    Returns True if at least one backup is made, False else
 """
-
 def backup(filepath, maxBackups = 3):
-    logger.debug("Performing backup of {}".format(filepath))
+    logger.debug("Performing backup of {}, maxBackups: {}".format(filepath, maxBackups))
     """
     filename -> filename.bak -> filename.bak1 -> filename.bak2
     """
@@ -51,9 +50,8 @@ Output:
     
 """
 def readJson(filepath):
-    logger.debug("Attempting to read: {}".format(filepath))
+    logger.debug("Reading Json: {}".format(filepath))
     try:
-        logger.debug("File {} read".format(filepath))
         f = open(filepath, "r")
         content = json.load(f)
         f.close()
@@ -73,35 +71,37 @@ Input:
     data        (dict)  : The dictionary that will be saved
                 
 Output:
-    True on succsess False else
-    
+    None, se notes
 Notes:
-    If the file or directory doesnt exist they will be created.
+    The only possible errors here should be OSError when trying to make the directory and IOError when
+    trying to open the file for writing. Since it normally will be pointless to continue without saving
+    these errors will be raised so they have to be handled explicitly further up.
 """
 def saveJson(directory, filename, data):
     filepath = directory+filename
-    logger.debug("Attempting to save JSON to: {}".format(filepath))
+    logger.debug("Saving JSON to: {}".format(filepath))
     
+    #Check if directory exists, and make the directory if it doesn't
     if not os.path.isdir(directory):
         try:
             os.mkdir(directory)
-        except OSError:
-            logger.warning("Can't create directory: {} for saving".format(directory))
-            return False
+        except OSError as e:
+            logger.error("Can't create directory: {} for saving".format(directory))
+            raise OSError("Can't create directory: {} for saving".format(directory)) from e
     try:
         f = open(filepath, "w")
-    except IOError:
-        logger.warning("Can't open file: {} for saving".format(filepath))
-        return False
+    except IOError as e:
+        logger.error("Attempt to open file: {} for writing failed".format(filepath))
+        raise IOError("Attempt to open file: {} for writing failed".format(filepath)) from e
     
+    #Format the json text into a readable format
     saveStr = json.dumps(data, sort_keys=True)
     saveStr = saveStr.replace("],", "],\n" )
     saveStr = saveStr.replace("},", "},\n")
     saveStr = saveStr.replace(" {", " {\n ")
+    
     f.write(saveStr + "\n")
     f.close()
-    logger.debug("Saved JSON to: {}".format(filepath))
-    return True
 
 """
 Loads a sequence file containing a sequence of commands to be sent over IR.
@@ -109,20 +109,22 @@ Loads a sequence file containing a sequence of commands to be sent over IR.
 Input:
     filepath    (String): The path of the sequence file
 Output:
-    Returns the sequences dict if sucsessfull.
+    Returns the sequences dict if sucsessfull, False else
+    Output dict format: {sequenceName:[device1,signal1,waittime1,device2,signal2,waittime2,....]}
 Notes:
-The sequence file should have the format:
+    The sequence file should have the format:
 
-sequenceName1:device1:signal1:waittime:device2:signal2:waittime.....
-sequenceName2:device1:signal1:waittime:device2:signal2:waittime.....
-.....
+    sequenceName1:device1:signal1:waittime1:device2:signal2:waittime2.....
+    sequenceName2:device1:signal1:waittime1:device2:signal2:waittime2.....
+    .....
 
-waittime is the time in seconds before next transmission
+    waittime is the time in seconds before next transmission
 
+    Lines with invalid format will be skipped, but noted by logger.error
 """
 
 def loadSequences(filepath):
-    logger.debug("Attempting to read sequence file: {}".format(filepath))
+    logger.debug("Reading sequences file: {}".format(filepath))
     sequences = {}
     
     #Opens file
@@ -131,8 +133,7 @@ def loadSequences(filepath):
     except IOError:
         logger.warning("Cant open sequencefile: {}".format(filepath))
         return False
-    logger.debug("Successfully read sequence file: {}".format(filepath))
-    
+
     currentLine = 0
     
     #Read all lines, each line is one sequence
@@ -176,12 +177,29 @@ def loadSequences(filepath):
                 noError = False
                 
             i += 3
-            
-    logger.debug("Successfully parsed sequences from file: {} into dictionary".format(filepath))
     return sequences
+
+"""
+Loads a file with bluetooth signals
+
+Input:
+    filepath    (String): The path of the bluetooth signal file
+Output:
+    Bluetooth signal dict if successfull, False else
+    Bluetooth signal dict format: {bluetoothSignals:[sig/seq, deviceName/sequenceName, signalName(if sig)]}
+Notes:
+    Format of file should be:
     
+    For running one IR Signal:
+    bluetoothSignal:sig:deviceName:signalName
+    
+    For running a sequence:
+    bluetoothSignal:seq:sequenceName
+    
+    the second paramater has to be sig(Signal) or seq(Sequence), the rest is user defined.
+"""
 def loadBluetoothSignals(filepath):
-    logger.debug("Attempting to read Bluetooth signals file: {}".format(filepath))
+    logger.debug("Reading Bluetooth signals file: {}".format(filepath))
     bluetoothSignals = {}
     
     #Opens file
@@ -190,10 +208,8 @@ def loadBluetoothSignals(filepath):
     except IOError:
         logger.warning("Cant open Bluetooth signals file: {}".format(filepath))
         return False
-    logger.debug("Successfully read Bluetooth signals file: {}".format(filepath))
     
     #Reads all lines
-    logger.debug("Starting to add bluetooth signals")
     currentLine = 0
     for line in file:
         line = line.rstrip() #Remove trailing whitespace
@@ -222,6 +238,25 @@ def loadBluetoothSignals(filepath):
         if(args[1] == "sig"):
             bluetoothSignals[args[0]].append(args[3])
     return bluetoothSignals
+
+"""
+Checks if the format of a bluetooth signal is correct
+
+Util function used by loadBluetoothSignals(). Checks if the args array is the correct format for a
+bluetooth signal
+
+args[0] is the name of the signal and can be any valid string.
+args[1] should be sig or seq
+if args[1] is sig the length should be 4, else the length should be 3
+
+Input:
+    args    (String array): The parameters for the bluetooth signal
+Output:
+    True if correct, False else
+Notes:
+    No logger at the beginning of function, since this function is called in a loop and usually assumed to
+    be correct.
+"""
 
 def bluetoothSignalFormatIsCorrect(args):
     #Check length

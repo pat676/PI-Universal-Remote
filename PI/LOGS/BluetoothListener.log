@@ -1006,3 +1006,399 @@
 2018-01-08 19:06:10,369 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
 2018-01-08 19:06:10,370 - BluetoothListener - DEBUG - Recieved Run command for bluetoothSignal: 2100
 2018-01-08 19:06:10,743 - BluetoothListener - DEBUG - Sent IRSignal: Reciever, On
+2018-01-09 20:07:00,736 - BluetoothListener - INFO - Testing if all defined bluetooth signals have a matchin IR-Signal or sequence...
+2018-01-09 20:07:00,737 - BluetoothListener - INFO - All bluetooth signals were matched with IR-Signals and Sequences
+2018-01-09 20:07:35,972 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:07:35,973 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:07:35,997 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:10:05,752 - BluetoothListener - DEBUG - Recieved bluetooth char: 8
+2018-01-09 20:10:05,753 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:10:05,754 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 8
+2018-01-09 20:10:05,756 - BluetoothListener - WARNING - Could not find bluetooth signal: 8
+2018-01-09 20:10:13,435 - BluetoothListener - DEBUG - Recieved bluetooth char: 5
+2018-01-09 20:10:13,436 - BluetoothListener - DEBUG - Recieved bluetooth char: 1
+2018-01-09 20:10:13,437 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:10:13,439 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:10:13,440 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:10:13,441 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 5100
+2018-01-09 20:10:13,441 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:11:50,738 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:11:50,739 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:11:50,783 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:11:56,662 - BluetoothListener - DEBUG - Recieved bluetooth char: 5
+2018-01-09 20:11:56,664 - BluetoothListener - DEBUG - Recieved bluetooth char: 1
+2018-01-09 20:11:56,665 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:11:56,666 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:11:56,667 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:11:56,667 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 5100
+2018-01-09 20:11:56,668 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:11:56,669 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:12:13,825 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:12:13,826 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:12:13,873 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:12:14,692 - BluetoothListener - DEBUG - Recieved bluetooth char: 5
+2018-01-09 20:12:14,694 - BluetoothListener - DEBUG - Recieved bluetooth char: 1
+2018-01-09 20:12:14,695 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:14,696 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:14,697 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:12:14,697 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 5100
+2018-01-09 20:12:14,698 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:12:14,699 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:12:26,272 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:12:26,273 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:12:26,319 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:12:27,712 - BluetoothListener - DEBUG - Recieved bluetooth char: 5
+2018-01-09 20:12:27,713 - BluetoothListener - DEBUG - Recieved bluetooth char: 1
+2018-01-09 20:12:27,714 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:27,715 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:27,716 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:12:27,716 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 5100
+2018-01-09 20:12:27,717 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:12:27,718 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:12:35,631 - BluetoothListener - DEBUG - Recieved bluetooth char: 2
+2018-01-09 20:12:35,633 - BluetoothListener - DEBUG - Recieved bluetooth char: 1
+2018-01-09 20:12:35,634 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:35,635 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:35,637 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:12:35,638 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 2100
+2018-01-09 20:12:35,638 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:12:35,639 - BluetoothListener - DEBUG - Running IR Signal: Reciever, On,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:12:40,281 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 20:12:40,283 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:40,284 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:40,285 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:40,286 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:12:40,286 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 20:12:40,287 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:12:40,288 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:12:45,141 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 20:12:45,142 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:45,144 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:45,145 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:12:45,146 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:12:45,147 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 20:12:45,148 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:12:45,149 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:15:19,064 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:15:19,065 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:15:19,120 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:16:40,306 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:16:40,308 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:16:40,309 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:16:40,310 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:16:40,312 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:16:40,312 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:16:40,313 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:17:48,817 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:17:48,818 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:17:48,861 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:17:50,564 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:17:50,566 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:17:50,567 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:17:50,568 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:17:50,569 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:17:50,569 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:17:50,570 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:17:50,571 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:17:50,572 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector
+2018-01-09 20:18:11,801 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:11,802 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:11,856 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:18:13,754 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:18:13,755 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:13,757 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:13,757 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:13,758 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:18:13,759 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:18:13,760 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:18:13,761 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:18:13,761 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector
+2018-01-09 20:18:31,847 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:31,848 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:31,895 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:18:32,743 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:18:32,745 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:32,746 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:32,747 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:32,748 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:18:32,749 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:18:32,749 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:18:32,750 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:18:32,751 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector
+2018-01-09 20:18:51,446 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:51,447 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:18:51,497 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:18:53,053 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:18:53,057 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:53,059 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:53,060 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:18:53,062 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:18:53,063 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:18:53,065 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:18:53,066 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:18:53,067 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector
+2018-01-09 20:18:53,069 - BluetoothListener - DEBUG - Running IR Signal: Down, Canvas,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:18:53,070 - BluetoothListener - ERROR - Could not find IRSignal: Down, Canvas
+2018-01-09 20:18:53,071 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:18:54,416 - BluetoothListener - DEBUG - Running IR Signal: 1.0, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:18:54,417 - BluetoothListener - ERROR - Could not find IRSignal: 1.0, Down
+2018-01-09 20:18:54,418 - BluetoothListener - DEBUG - Running IR Signal: Down, 1.0,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:18:54,419 - BluetoothListener - ERROR - Could not find IRSignal: Down, 1.0
+2018-01-09 20:21:11,783 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:21:11,785 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:21:11,830 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:21:13,600 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:21:13,601 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:21:13,602 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:21:13,603 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:21:13,604 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:21:13,605 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:21:13,605 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:21:13,606 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:21:13,607 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector
+2018-01-09 20:21:13,608 - BluetoothListener - DEBUG - Running IR Signal: Down, Canvas,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:21:13,609 - BluetoothListener - ERROR - Could not find IRSignal: Down, Canvas
+2018-01-09 20:21:13,609 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:21:14,955 - BluetoothListener - DEBUG - Running IR Signal: PowerOn, Projector,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:21:14,957 - BluetoothListener - ERROR - Could not find IRSignal: PowerOn, Projector
+2018-01-09 20:21:14,958 - BluetoothListener - DEBUG - Running IR Signal: Projector, PowerOn,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:21:14,959 - BluetoothListener - ERROR - Could not find IRSignal: Projector, PowerOn
+2018-01-09 20:21:15,960 - BluetoothListener - DEBUG - Running IR Signal: PowerOn, DenonReciever,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:21:15,962 - BluetoothListener - ERROR - Could not find IRSignal: PowerOn, DenonReciever
+2018-01-09 20:21:15,963 - BluetoothListener - DEBUG - Running IR Signal: DenonReciever, PowerOn,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:21:15,964 - BluetoothListener - ERROR - Could not find IRSignal: DenonReciever, PowerOn
+2018-01-09 20:21:16,966 - BluetoothListener - DEBUG - Running IR Signal: PowerOn, AppleTV,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 20:21:16,967 - BluetoothListener - ERROR - Could not find IRSignal: PowerOn, AppleTV
+2018-01-09 20:21:16,968 - BluetoothListener - DEBUG - Running IR Signal: AppleTV, PowerOn,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:21:16,969 - BluetoothListener - ERROR - Could not find IRSignal: AppleTV, PowerOn
+2018-01-09 20:26:47,065 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:26:47,067 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 20:26:47,125 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 20:26:51,128 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 20:26:51,130 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:26:51,138 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:26:51,139 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 20:26:51,140 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 20:26:51,141 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 20:26:51,141 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 20:26:51,142 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:26:51,143 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:26:52,514 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:26:53,941 - BluetoothListener - DEBUG - Running IR Signal: DenonReciever, On,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:26:53,942 - BluetoothListener - ERROR - Could not find IRSignal: DenonReciever, On
+2018-01-09 20:26:54,944 - BluetoothListener - DEBUG - Running IR Signal: AppleTV, On,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 20:26:54,945 - BluetoothListener - ERROR - Could not find IRSignal: AppleTV, On
+2018-01-09 21:16:12,893 - BluetoothListener - INFO - Testing if all defined bluetooth signals have a matchin IR-Signal or sequence...
+2018-01-09 21:16:12,894 - BluetoothListener - INFO - All bluetooth signals were matched with IR-Signals and Sequences
+2018-01-09 21:16:22,797 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:16:22,798 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:16:22,843 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 21:16:26,861 - BluetoothListener - DEBUG - Recieved bluetooth char: b'9'
+2018-01-09 21:17:28,411 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:17:28,412 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:17:28,459 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 21:17:30,400 - BluetoothListener - DEBUG - Recieved bluetooth char: b'7'
+2018-01-09 21:17:30,402 - BluetoothListener - DEBUG - Recieved bluetooth char: b'0'
+2018-01-09 21:17:30,403 - BluetoothListener - DEBUG - Recieved bluetooth char: b'0'
+2018-01-09 21:17:30,404 - BluetoothListener - DEBUG - Recieved bluetooth char: b'0'
+2018-01-09 21:17:30,405 - BluetoothListener - DEBUG - Recieved bluetooth char: b';'
+2018-01-09 21:19:17,423 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:19:17,424 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:19:17,469 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 21:19:19,599 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:19:19,601 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:19,602 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:19,603 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:19,604 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:19:19,604 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:19:19,605 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:19:19,606 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:19:28,960 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:19:28,961 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:28,962 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:28,964 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:28,965 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:19:28,966 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:19:28,967 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:19:28,968 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:19:35,019 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 21:19:35,021 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:35,022 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:35,023 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:19:35,024 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:19:35,025 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 21:19:35,025 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:19:35,026 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 21:19:35,027 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.05
+2018-01-09 21:20:00,486 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:20:00,487 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:20:00,533 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 21:20:01,959 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 21:20:01,961 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:20:01,962 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:20:01,963 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:20:01,964 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:20:01,965 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 21:20:01,966 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:20:01,967 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:20:01,967 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:20:03,466 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:20:05,047 - BluetoothListener - DEBUG - Running IR Signal: DenonReciever, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:20:05,048 - BluetoothListener - ERROR - Could not find IRSignal: DenonReciever, On
+2018-01-09 21:20:06,051 - BluetoothListener - DEBUG - Running IR Signal: AppleTV, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:20:06,052 - BluetoothListener - ERROR - Could not find IRSignal: AppleTV, On
+2018-01-09 21:21:27,724 - BluetoothListener - DEBUG - Running main loop with IR-Signals file: ./SignalFiles/IRSignals, sequencs file: ./SignalFiles/Sequences, bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:21:27,725 - BluetoothListener - DEBUG - Reading IR-Signal files: ./SignalFiles/IRSignals, sequences file: ./SignalFiles/Sequences and bluetooth signals file: ./SignalFiles/BluetoothSignals
+2018-01-09 21:21:27,769 - BluetoothListener - DEBUG - Starting main loop  with EOS symbol: ';'
+2018-01-09 21:21:30,009 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 21:21:30,010 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:30,012 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:30,012 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:30,013 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:30,014 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 21:21:30,015 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:30,016 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:30,017 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:31,516 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:33,095 - BluetoothListener - DEBUG - Running IR Signal: Reciever, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:34,621 - BluetoothListener - DEBUG - Running IR Signal: AppleTV, Home,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:43,148 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:43,150 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:43,151 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:43,153 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:43,154 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:43,155 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:43,156 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:43,157 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:45,728 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:45,730 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:45,731 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:45,732 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:45,733 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:45,734 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:45,735 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:45,736 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:48,218 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:48,220 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:48,221 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:48,222 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:48,224 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:48,224 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:48,225 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:48,226 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:49,808 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:49,810 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:49,811 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:49,812 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:49,813 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:49,814 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:49,815 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:49,816 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:50,978 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:50,980 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:50,981 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:50,982 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:50,983 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:50,984 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:50,985 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:50,985 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:52,238 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:52,240 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:52,241 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:52,242 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:52,243 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:52,244 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:52,245 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:52,246 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:53,528 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:53,530 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:53,531 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:53,532 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:53,533 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:53,534 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:53,535 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:53,536 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:54,548 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:54,550 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:54,551 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:54,552 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:54,553 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:54,554 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:54,554 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:54,555 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:55,388 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:55,390 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:55,391 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:55,392 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:55,393 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:55,394 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:55,395 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:55,396 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:56,018 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:56,020 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:56,021 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:56,022 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:56,023 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:56,024 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:56,025 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:56,026 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:57,159 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:21:57,160 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:57,161 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:57,162 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:57,163 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:57,164 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:21:57,165 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:57,166 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:21:59,828 - BluetoothListener - DEBUG - Recieved bluetooth char: 9
+2018-01-09 21:21:59,830 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:59,831 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:59,832 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:21:59,833 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:21:59,834 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 9000
+2018-01-09 21:21:59,834 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:21:59,835 - BluetoothListener - DEBUG - Running sequence: AppleTVProjector, with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:21:59,836 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:22:01,330 - BluetoothListener - DEBUG - Running IR Signal: Projector, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:22:02,907 - BluetoothListener - DEBUG - Running IR Signal: Reciever, On,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:22:04,431 - BluetoothListener - DEBUG - Running IR Signal: AppleTV, Home,  with repeats for each signal: 3, sleep time between repeats: 0.1
+2018-01-09 21:22:07,718 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:22:07,720 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:07,721 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:07,722 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:07,723 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:22:07,724 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:22:07,724 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:22:07,725 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:22:08,828 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:22:08,830 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:08,831 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:08,832 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:08,833 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:22:08,834 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:22:08,835 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:22:08,836 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:22:09,728 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:22:09,730 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:09,731 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:09,732 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:09,733 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:22:09,733 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:22:09,734 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:22:09,735 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:22:10,568 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:22:10,570 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:10,571 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:10,572 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:10,573 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:22:10,573 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:22:10,574 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:22:10,575 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0
+2018-01-09 21:22:31,359 - BluetoothListener - DEBUG - Recieved bluetooth char: 7
+2018-01-09 21:22:31,360 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:31,362 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:31,363 - BluetoothListener - DEBUG - Recieved bluetooth char: 0
+2018-01-09 21:22:31,364 - BluetoothListener - DEBUG - Recieved bluetooth char: ;
+2018-01-09 21:22:31,365 - BluetoothListener - DEBUG - Decoding and running bluetooth signal: 7000
+2018-01-09 21:22:31,366 - BluetoothListener - DEBUG - Found signal in bluetoothSignals
+2018-01-09 21:22:31,367 - BluetoothListener - DEBUG - Running IR Signal: Canvas, Down,  with repeats for each signal: 1, sleep time between repeats: 0

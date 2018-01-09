@@ -33,7 +33,7 @@ Notes:
 """
 def addSignalFromUser(devicename, signals):
     while True:
-        name = raw_input("Please enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
+        name = input("Please enter the signal name for device: {}, type 'q' when finished\n".format(devicename))
     
         if(name == "q"):
             return

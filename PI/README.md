@@ -1,6 +1,6 @@
 Raspberry Pi:
 
-This folder contains the software part for the pi. 
+This folder contains the software part for the pi.
 
 setup:
 
@@ -12,21 +12,22 @@ sudo nano config.txt
 use the arrows to navigate to the bottom of the file and add the two lines:
 
 dtoverlay=pi3-disable-bt
+
 enable_uart=1
 
-press: 
+press:
 ctrl+x
 Y
 enter
-to save the changes. 
+to save the changes.
 
-This might be different in other PI or OS versions. 
+This might be different in other PI or OS versions.
 
 Usage:
 Download all files and run Remote.py to start adding/removing devices and signals. The interface is crude at best, but it should be easy to use and do the trick. Signals will be saved in json format at the directory and filename specified by the SIGNALS_FILENAME and SIGNALS_DIRECTORY constants at the top of RemoteUI.py. Change theese as you wish. A backup of the signals file will be created every time you run the Remote.py
 
 ----------------------------------------------------------------------------
-1.IRCommands.py 
+1.IRCommands.py
 
 This module uses pigpio to read and playback IR Signals. It is working for the intended use, but hasn't been tested thouroghly. Make sure you run sudo pigpiod before use.
 
@@ -63,22 +64,17 @@ TODO:
 - Needs testing
 - saveJson() will return false on IOError, should raise a customException and let other parts of the program handle this (Should ultimatly abort program)
 ----------------------------------------------------------------------------
-5. CustomExceptions 
-
-TODO:
-- Up to date, implement more exceptions as needed
-----------------------------------------------------------------------------
-6. Logger.py
+5. Logger.py
 
 Implemented for easy adjustment of logging level and filepaths. All constants regarding logging should be contained in this file
 
 TODO:
 - Up to date.
 ----------------------------------------------------------------------------
-7. BluetoothListener.py
+6. BluetoothListener.py
 
 This is the module that will normally be running to listen for bluetooth commands and transmit these over IR
 
 TODO:
-- Almost everything
+- Add test functions
  

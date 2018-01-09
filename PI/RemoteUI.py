@@ -45,7 +45,7 @@ def mainMenu():
         
         #Reading user input
         try:
-            choice = input(menuText)
+            choice = int(input(menuText))
             logger.debug("User input: {} accepted".format(choice))
         except NameError:
             logger.debug("User input not accepted")
@@ -79,7 +79,7 @@ def addDevice():
         
         #Print menu information
         print(SEPERATOR_LINE + "\nAdd Device Menu:\n" + SEPERATOR_LINE)
-        deviceName = raw_input("Please enter name of device:, type 'q' to cancel\n")
+        deviceName = input("Please enter name of device:, type 'q' to cancel\n")
         
         #User exited to main menu
         if deviceName == "q":
@@ -90,7 +90,7 @@ def addDevice():
          #Check if device name allready exists
         if deviceName in signals:
             logger.debug("New devicename: {} allready exists".format(deviceName))
-            cmd = raw_input("Device allready exists, do you want to erase all signals connected to this device? Y/N\n")
+            cmd = input("Device allready exists, do you want to erase all signals connected to this device? Y/N\n")
             cont = cmd == "Y" or cmd == "y"
         if not cont:
             logger.debug("User did not add device")
@@ -106,7 +106,7 @@ def addDevice():
 def removeDevice():
     while(True):
         logger.debug("Running removeDevice menu")
-        deviceNames = signals.keys()
+        deviceNames = list(signals.keys())
     
         #Print menu information
         print(SEPERATOR_LINE + "\nRemove Device Menu:\n" + SEPERATOR_LINE)
@@ -138,7 +138,7 @@ def removeDevice():
 def addSignalToDevice():
     while(True):
         logging.debug("Running addSignalToDevice menu")
-        deviceNames = signals.keys()
+        deviceNames = list(signals.keys())
         
         #Print menu information
         print(SEPERATOR_LINE + "\nAdd Signal To Device Menu:\n" + SEPERATOR_LINE)
@@ -166,7 +166,7 @@ def addSignalToDevice():
 def removeSignalFromDevice():
     while(True):
         logging.debug("Running the removeSignalFromDevice menu")
-        deviceNames = signals.keys()
+        deviceNames = list(signals.keys())
         
         #Print menu information
         print(SEPERATOR_LINE + "\nRemove Signal From Device:\n" + SEPERATOR_LINE)
@@ -189,10 +189,10 @@ def removeSignalFromDevice():
         
         while(True):
             logging.debug("Running the remove signal from device: {} loop".format(deviceName))
-            signalNames = signals[deviceName].keys()
+            signalNames = list(signals[deviceName].keys())
         
             #Print menu information
-            print(SEPERATOR_LINE + "\nRemove Signal From Device: {}\n" + SEPERATOR_LINE).format(deviceName)
+            print(SEPERATOR_LINE + "\nRemove Signal From Device: {}\n".format(deviceName) + SEPERATOR_LINE)
             infoStr = "Please enter the number of the signal\n"
             signalNum = presentNumberedListAndGetUserInput(signalNames, infoStr)
         
@@ -223,7 +223,7 @@ def startBluetoothListener():
 
 #Runs a test to check if the read bluetooth signals match with read IR-Signals and sequences
 def testIfSignalsMatch():
-    bl.testIfSignalsMatch()
+    bl.testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences()
     
 """
 Prints a numbered list to terminal and returns an integer respons from user
@@ -251,7 +251,7 @@ def presentNumberedListAndGetUserInput(inList, infoStr):
         #Get user input
         logging.debug("Getting user input")
         try:
-            num = input(infoStr)
+            num = int(input(infoStr))
             num -= 1
         except NameError:
             logging.debug("User input not a valid number, returning", exc_info = True)
@@ -265,7 +265,7 @@ def presentNumberedListAndGetUserInput(inList, infoStr):
 
 def userConfirm(outStr):
     logging.debug("Running user confirmation")
-    cmd = raw_input(outStr + " Y/N\n")
+    cmd = input(outStr + " Y/N\n")
     if( cmd == "Y" or cmd =="y"):
         logging.debug("User confirmed: {}".format(cmd))
         return True

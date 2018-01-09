@@ -1,0 +1,77 @@
+General:
+
+Indentation style: Tab (might find 4 spaces instead in some modules)
+
+In Try/Except blocks the except needs to specify exception. Do not use except blocks like
+- except:
+- except Exception as e:
+- etc...
+
+Functions that may fail and do not have spesific return values should usually return True on success and False else
+------------------------------------------------------------------
+
+Commenting style:
+
+"""
+Headline summarising what the function should do (Max 1 line)
+
+Detailed information about what the funciton should do
+
+Input:
+  param1    (Excpected Type): Description
+  param2    (Excpected Type): Description
+
+Output:
+  Describe the return value of the function
+
+Notes:
+  Comment behavior of the function that might be unexpected.
+"""
+
+Example:
+"""
+Uses bluetooth signal information to transmit one IRSignal.
+
+Innput:
+    deviceName      (String): The name of the device
+    signalName      (String): The name io the signal
+    repeats         (int)   : Number of times the IR-Signal is transmitted
+    repeatSleepTime (float) : The sleep time between each repeat
+Output:
+    True on success, False else.
+Notes:
+    IRSignals dict is excepected to have the format {deviceNames:signalNames}. No tests for wrong format
+    are performed
+"""
+------------------------------------------------------------------
+Logger:
+
+General rules:
+1) Always use __name__ for the name of the logger module!
+2) All message should only have 1 severity code. Dont log the same message first to debug then error etc...
+3) Dont spam the logger (read: loops...)
+4) All rules are general guidelines and can be broken if necesarry
+
+Debug logs:
+1) log at begining of every function. This log should contian function parameters
+2) log after user input, like terminal innput, bluetooth signal read etc...
+3) log when relying on global constants. This log should contain the constant (Only once in each function)
+4) log at branching when considered necesary
+5) Include relevant parameters, but remeber debug logging is extensive and many parameters can be found in
+   earlier entries.
+
+Debug logs should normally not happen at:
+- Before calling a function. (This will be taken care of when entering the function)
+- Branching where the branch will directly call another function(Again taken care of when entering function)
+
+Warning logs:
+1) When someting happens that usually will be considered an error, but not necesarly, for example:
+   The program can run without any sequence file, but if it doesn't manage to load the sequence file, it will usually be an error. This is a warning.
+
+Error logs:
+1) An error! Occasions that should never happen. The program will usually exit or return control to another
+   module
+
+Info logs:
+1) Not extensivly used. Should be used instead of print if you want the possibility to "turn off" the print.
+------------------------------------------------------------------
