@@ -1,6 +1,6 @@
 General:
 
-Indentation style: Tab (might find 4 spaces instead in some modules)
+Indentation style: Tab
 
 In Try/Except blocks the except needs to specify exception. Do not use except blocks like
 - except:
@@ -8,41 +8,8 @@ In Try/Except blocks the except needs to specify exception. Do not use except bl
 - etc...
 
 Functions that may fail and do not have spesific return values should usually return True on success and False else
-------------------------------------------------------------------
 
-Commenting style:
-
-"""
-Headline summarising what the function should do (Max 1 line)
-
-Detailed information about what the funciton should do
-
-Input:
-  param1    (Excpected Type): Description
-  param2    (Excpected Type): Description
-
-Output:
-  Describe the return value of the function
-
-Notes:
-  Comment behavior of the function that might be unexpected.
-"""
-
-Example:
-"""
-Uses bluetooth signal information to transmit one IRSignal.
-
-Innput:
-    deviceName      (String): The name of the device
-    signalName      (String): The name io the signal
-    repeats         (int)   : Number of times the IR-Signal is transmitted
-    repeatSleepTime (float) : The sleep time between each repeat
-Output:
-    True on success, False else.
-Notes:
-    IRSignals dict is excepected to have the format {deviceNames:signalNames}. No tests for wrong format
-    are performed
-"""
+Commenting style: Google, see: http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 ------------------------------------------------------------------
 Logger:
 

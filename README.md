@@ -9,7 +9,7 @@ this project please add a comment stating so in your own code.
 
 Current status:
 
-- The project works but excpect a lot of bugs. A lot of features are still under development
+- The project works but expect a lot of bugs. A lot of features are still under development
 
 Setup:
 

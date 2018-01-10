@@ -16,11 +16,10 @@ dtoverlay=pi3-disable-bt
 enable_uart=1
 
 
-press:
+To save the changes press:
 ctrl+x
 Y
 enter
-to save the changes.
 
 This might be different in other PI or OS versions.
 
@@ -69,14 +68,14 @@ TODO:
 ----------------------------------------------------------------------------
 4. Logger.py
 
-Implemented for easy adjustment of logging level and filepaths. All constants regarding logging should be contained in this file
+Implemented for easy adjustment of logging level and logfilepaths. All constants regarding logging should be contained in this file
 
 TODO:
 - Up to date.
 ----------------------------------------------------------------------------
 5. BluetoothListener.py
 
-This is the module that will normally be running to listen for bluetooth commands and transmit these over IR
+This is the module that will normally be running to listen for bluetooth signals and transmiting IR Signals
 
 TODO:
 - Add test functions

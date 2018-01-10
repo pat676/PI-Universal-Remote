@@ -1,3 +1,30 @@
+"""
+A module listening for bluetooth signals and transmitting matching IR-Signals
+
+This module will listen for bluetooth signals and match them with either a sequence or one IR Signal.
+The files spesified in the parameters of the main loop will be used to match the signals.
+
+Attributes:
+    logger (Logging object):
+        The logger used for the module
+    port (Serial object):
+        The port used for bluetooth comunication
+    IRSignals (Dict):
+        The dict matching IR Signal name with actual signal. Format:
+        {deviceName:signalName:[signal])}
+        {String:String:[int]}
+    sequences (Dict):
+        The dict matching sequence names to IR-signals. Format:
+        {sequenceName:[deviceName1, signalName1, waittime1, deviceName2, signalName2, waittime2....]
+        {String:[String, String, String...]
+    bluetoothSignals (Dict):
+        The dict containing bluetooth signals and matching IR Signals/ sequences. Format:
+        {bluetoothSignal:[sig/seq, deviceName/sequenceName, signalName(if arg[0] = sig]}
+        {String:[String, String, String(if arg[0] = sig)]}
+        arg[0] of the array has to be sig or seq indicating signal or sequence. If arg[0] = seq the
+        array will be of length 2, if sig length 3.
+"""
+
 import serial
 import FileHandler as fh
 import logging
@@ -5,42 +32,27 @@ import time
 
 import IRInterface as iri
 from Logger import *
+from config import *
 
 logger = fh.getLogger(LOGS_LEVEL, __name__, LOGS_DIRECTORY, BLUETOOTHLISTENER_LOGS_FILENAME)
-port = serial.Serial("/dev/ttyAMA0", baudrate=9600) #Used to recieve bluetooth signals
-EOS = ";" #End of signal symbol for bluetooth signals
-
-"""
-Every IRsignal in a sequnce will be transmitted this SEQUENCE_PLAYBACK_TIMES with a pause of
-SEQUNECE_PLAYBACK_SLEEP minutes between each transmission
-"""
-SEQUENCE_PLAYBACK_TIMES = 3
-SEQUNECE_PLAYBACK_SLEEP = 0.1
-
-"""
-Every single IRsignal will be transmitted this IRSIGNAL_PLAYBACK_TIMES with a pause of
-IRSIGNALS_PLAYBACK_SLEEP minutes between each transmission. IRSIGNAL_PLAYBACK_TIMES should usually be set
-to 1, else it might create a problem for "press and hold"functionallity, like holding channel up button to
-continously change channels.
-"""
-IRSIGNAL_PLAYBACK_TIMES = 1
-IRSIGNAL_PLAYBACK_SLEEP = 0
+port = serial.Serial("/dev/ttyAMA0", baudrate=9600)
 
 IRSignals = {}
 sequences = {}
 bluetoothSignals = {}
 
-"""
-Runs the main loop listening for bluetooth signals
 
-Input:
-    IRSignalsFilePath       (String): The full path of the file containing the IRSignals
-    sequencesFilePath       (String): The full path of the file containing the sequences
-    bluetoothSignalsFilePath(String): The full path of the file containing the bluetoothSignals
-Output:
-    None
-"""
 def mainLoop(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath):
+    """
+    Runs the main loop listening for bluetooth signals
+
+    Args:
+        IRSignalsFilePath       (String): The full path of the file containing the IRSignals
+        sequencesFilePath       (String): The full path of the file containing the sequences
+        bluetoothSignalsFilePath(String): The full path of the file containing the bluetoothSignals
+    Returns:
+        None
+    """
     logger.debug("Running main loop with IR-Signals file: {}, sequencs file: {}, bluetooth signals file: {}".format(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath))
     
     #Reading signal files and testing for succes
@@ -61,15 +73,16 @@ def mainLoop(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath):
             else:
                 bluetoothSignal += rcv
         
-"""
-Decodes and runs a bluetooth signal
 
-Innput:
-    bluetoothSignal (String): The bluetooth signal
-Output:
-    True on success, False else
-"""
 def decodeAndRunBluetoothSignal(bluetoothSignal):
+    """
+    Decodes and runs a bluetooth signal
+
+    Args:
+        bluetoothSignal (String): The bluetooth signal
+    Returns:
+        True on success, False else
+    """
     logger.debug("Decoding and running bluetooth signal: {}".format(bluetoothSignal))
     
     if bluetoothSignal in bluetoothSignals:
@@ -89,40 +102,40 @@ def decodeAndRunBluetoothSignal(bluetoothSignal):
         logger.warning("Could not find bluetooth signal: {}".format(bluetoothSignal))
         return False
         
-"""
-Runs a sequence of signals.
 
-Input:
-    sequenceName            (String): The name of the sequence
-    repeatsForEachSignal    (int)   : The number of times each signal is repeated
-    repeatSleepTime         (float) : The sleep time in seconds between each repeat
-Output:
-    True on success, False else
-Notes:
-    waittime is the time in seconds between transmission of each signal in the sequence and is found in
-    the sequences dict.
-    the repeatSleepTime parameter is the time slept between repeats of each individual signal in the
-    sequence.
-"""
 def runSequence(sequenceName, repeatsForEachSignal = 1, repeatSleepTime = 0):
+    """
+    Transmits a sequence of signals from the global sequences dict
+    
+    waittime is the time in seconds between transmission of each signal in the sequence and is found in
+    the sequences dict. The repeatSleepTime parameter is the time slept between repeats of each individual
+    signal in the sequence.
+
+    Args:
+        sequenceName            (String): The name of the sequence
+        repeatsForEachSignal    (int)   : The number of times each signal is repeated
+        repeatSleepTime         (float) : The sleep time in seconds between each repeat
+    Returns:
+        True on success, False else
+
+    """
     logger.debug("Running sequence: {}, with repeats for each signal: {}, sleep time between repeats: {}".format(sequenceName, repeatsForEachSignal, repeatSleepTime))
     
     if(sequenceName in sequences):
         sequence = sequences[sequenceName]
         
-        #Get all IR-Signals in the sequence
-        for i in range(0,len(sequence)-1,3):
+        if(not len(sequence)%3 == 0):
+            #Each signal should have 3 entries in the sequence array (deviceName, signalName, waittime)
+            logger.error("Sequence: {}, had unexpected length: {}. Lenght should be a mulitplum of 3".format(sequenceName, len(sequence)))
+            return False
             
-            #Get the next IR-Signal
-            try:
-                deviceName = sequence[i]
-                signalName = sequence[i+1]
-                waitTime = sequence[i+2]
-            except IndexError:
-                logger.error("Sequence: {}, had unexpected length: {}. Lenght should be a mulitplum of 3".format(sequnceName, sequences))
-                return False
+        numberOfSignals = int(len(sequence)/3)
+        for i in range(0,numberOfSignals):
+            
+            deviceName = sequence[3*i]
+            signalName = sequence[3*i+1]
+            waitTime = sequence[3*i+2]
                 
-            #Run the IR-Signal
             runIRSignal(deviceName, signalName, repeatsForEachSignal, repeatSleepTime)
             time.sleep(waitTime)
     
@@ -132,21 +145,22 @@ def runSequence(sequenceName, repeatsForEachSignal = 1, repeatSleepTime = 0):
     
     return True
 
-"""
-Uses bluetooth signal information to transmit one IRSignal.
 
-Innput:
-    deviceName      (String): The name of the device
-    signalName      (String): The name io the signal
-    repeats         (int)   : Number of times the IR-Signal is transmitted
-    repeatSleepTime (float) : The sleep time between each repeat
-Output:
-    True on success, False else.
-Notes:
+def runIRSignal(deviceName, signalName, repeats = 1, repeatSleepTime = 0):
+    """
+    Transmit one IRSignal from the global IRSignals dict
+
     IRSignals dict is excepected to have the format {deviceNames:signalNames}. No tests for wrong format
     are performed
-"""
-def runIRSignal(deviceName, signalName, repeats = 1, repeatSleepTime = 0):
+    
+    Args:
+        deviceName      (String): The name of the device
+        signalName      (String): The name io the signal
+        repeats         (int)   : Number of times the IR-Signal is transmitted
+        repeatSleepTime (float) : The sleep time between each repeat
+    Returns:
+        True on success, False else.
+    """
     logger.debug("Running IR Signal: {}, {},  with repeats for each signal: {}, sleep time between repeats: {}".format(deviceName, signalName, repeats, repeatSleepTime))
     
     if (deviceName in IRSignals) and (signalName in IRSignals[deviceName]):
@@ -159,20 +173,21 @@ def runIRSignal(deviceName, signalName, repeats = 1, repeatSleepTime = 0):
         
     return True
 
-"""
-Reads all signal files and assignes theese to global parameters
 
-Input:
-    IRSignalsFilePath           (String): The file path of the IRSignalsFile
-    sequencesFilePath           (String): The file path of the sequencesFile
-    bluetoothSignalsFilePath    (String): The file path of the bluetoothSignalsFile
-Output:
-    True on success, False else
-Notes:
+def readSignalFiles(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath):
+    """
+    Reads all signal files and assignes theese to global parameters
+
     Will return True even if the sequences file could not be loaded, since the program will run
     without a sequences file.
-"""
-def readSignalFiles(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath):
+
+    Args:
+        IRSignalsFilePath           (String): The file path of the IRSignalsFile
+        sequencesFilePath           (String): The file path of the sequencesFile
+        bluetoothSignalsFilePath    (String): The file path of the bluetoothSignalsFile
+    Returns:
+        True on success, False else
+    """
     logger.debug("Reading IR-Signal files: {}, sequences file: {} and bluetooth signals file: {}".format(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePath))
     global IRSignals, sequences, bluetoothSignals, logger
     
@@ -196,16 +211,15 @@ def readSignalFiles(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePa
     
     return True
 
-"""
-Reads all files and tests if all bluetooth signals have a matching IR-Signal or sequence
 
-Output:
-    Number of mismatches
-Notes:
-    Logging will be set to INFO level during the run.
-"""
 def testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences():
-    logger.level = logging.INFO
+    """
+    Reads all files and tests if all bluetooth signals have a matching IR-Signal or sequence
+
+    Returns:
+        Number of mismatches
+
+    """
     logger.info("Testing if all defined bluetooth signals have a matchin IR-Signal or sequence...")
     
     errors = 0;
@@ -237,3 +251,4 @@ def testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences():
         
     logger.level = LOGS_LEVEL
     return errors
+    
