@@ -8,6 +8,9 @@ WARNING:
 I have little formal electronics education and my schematics might be wrong. If you dont know what you are 
 doing never leave the device unattended and know that wrong connections might damage your PI and/or all 
 connected devices. I do not take responsibility for any errors in the schematics. 
+I have little formal electronics education and my schematics might be wrong. If you dont know what you are
+doing never leave the device unattended and know that wrong connections might damage your PI and/or all
+connected devices. I do not take responsibility for any errors in the schematics.
 
 Pins are listed as physical numbering (From 1-40) with 1 being bottom left, 2 top left and so on.
 Read https://www.raspberrypi.org/documentation/usage/gpio-plus-and-raspi2/ appendix 1.A for more
@@ -24,27 +27,28 @@ Hardware list:
 7. Wiring
 
 HM-10 Connections:
-1. Connect the VCC to a 5 or 3.3 volt pin on the raspberry (Other models might require 3.3V). 
+1. Connect the VCC to a 5 or 3.3 volt pin on the raspberry (Other models might require 3.3V).
    Suggested pin: 2
 2. Connect ground to ground. Suggested Pin: 6
 3. Connect TXD on the HM-10 to pin 10 on the raspberry
 4. Connect RXD on the HM-10 to pin 8 on the raspberry
 
-
-IR-leds connections:
-1. Connect the long legs of the IR-Led to 3.3V Suggested PIN: 17
-2. Connect the short leg of the IR-Led to the transistors collector pin(Google the data-sheet
-   for your transistor to find the pin-out of your transistor). 
-3. Connect the emitter pin of the transistors to ground through a 20Ohm resistor
-4. Connect the transistor base to a 2k Ohm resistor and connect the other end of the resistor
+IR-led connections:
+1. Connect the long legs of the IR-Led to 5V Suggested PIN: 17
+2. Connect the short leg of the IR-Led to the transistors collector pin through a 100 oHm resistor
+   Smaller resistor values will increase range but might affect the lifetime of the IR-Led. Very small values
+   might affect the PI. (If you few devices (USB, ethernet, hdmi...) connected to the pi this shouldn't be a problem)
+   Check the data-sheet for your transistor to find the pin-out.
+3. Connect the emitter pin of the transistors to ground
+4. Connect the transistor base to a 1kOhm resistor and connect the other end of the resistor
    to pin 40. (Other pins can be used, but you have to change the GPIO_OUT constant at the
-   top of the IRRemoteControllInterface.py file. These constants use the GPIONumbering, not
+   top of the IRRemoteInterface.py file. These constants use the GPIONumbering, not
    the physical numbering.)
 
-IR-Transmitter connection:
+IR-Reciever connection:
 1. Connect VCC to VCC, suggested pin: 1
 2. Connect Ground to ground, suggested pin: 6
-3. Connect Out to pin 37(Other pins can be used, but you have to change the GPIO_IN constant at 
+3. Connect Out to pin 37(Other pins can be used, but you have to change the GPIO_IN constant at
    the top of the IRRemoteControllInterface.py file. These constants use the GPIONumbering, not
    the physical numbering.)
 

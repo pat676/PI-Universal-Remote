@@ -31,6 +31,10 @@
 2206:sig:Reciever:VolDown
 2209:sig:Reciever:Enter
 2210:sig:Reciever:Menu
+2300:sig:Reciever:Game
+2301:sig:Reciever:Blu-ray
+2302:sig:Reciever:Cbl/Sat
+2303:sig:Reciever:MediaPlayer
 #
 # TVDekoderSignals: 3000-3999
 # AppleTVSignals: 4000-4999
@@ -57,4 +61,5 @@
 7001:sig:Canvas:Up
 #
 # SequenceSignals: 9000-9999
-9000:seq:AppleTVProjector
+9000:seq:AppleTVProjectorOn
+9001:seq:AppleTVProjectorOff

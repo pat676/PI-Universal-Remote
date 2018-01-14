@@ -16,7 +16,7 @@ BLUETOOTH_SIGNALS_FILE = BLUETOOTH_SIGNALS_DIRECTORY+BLUETOOTH_SIGNALS_FILENAME
 
 #The number of times bluetooth listener transmits EACH signal in a sequence and sleep time between
 SEQUENCE_PLAYBACK_TIMES = 3
-SEQUNECE_PLAYBACK_SLEEP = 0.1
+SEQUNECE_PLAYBACK_SLEEP = 0.05
 
 #The number of times bluetooth listener transmits one IR-Signal. Will not affect signals in sequences. Changing
 #these to other values than 1 and 0 might interfere with "press and hold" functionallity like pressing volume
@@ -30,7 +30,7 @@ EOS = ";"
 import logging
 
 LOGS_LEVEL = logging.INFO #Change to logging.DEBUG for more informtion, logging.INFO for less
-#logging.basicConfig(level=LOGS_LEVEL) #Uncomment for logging to terminal
+logging.basicConfig(level=LOGS_LEVEL) #Uncomment for logging to terminal
 LOGS_DIRECTORY = "./LOGS/"
 BLUETOOTHLISTENER_LOGS_FILENAME  = "BluetoothListener.log"
 FILEHANDLER_LOGS_FILENAME  = "FileHandler.log"

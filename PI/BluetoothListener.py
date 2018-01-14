@@ -194,14 +194,14 @@ def readSignalFiles(IRSignalsFilePath, sequencesFilePath, bluetoothSignalsFilePa
     #Reading stored IR-signals
     IRSignals = fh.readJson(IRSignalsFilePath)
     if(len(IRSignals) == 0):
-        logger.error("No IR-signals found in {}".format(signalsFilePath))
+        logger.error("No IR-signals found in {}".format(IRSignalsFilePath))
         return False
         
     #Reading stored sequences
     sequences = fh.loadSequences(sequencesFilePath)
     if(not sequences):
         #This might be intended if no sequence file is created
-        logger.warning("Could not open sequence file: sequnceFilePath")
+        logger.warning("Could not open sequence file: {}".format(sequncesFilePath))
     
     #Reading stored bluetooth signals
     bluetoothSignals = fh.loadBluetoothSignals(bluetoothSignalsFilePath)
@@ -229,16 +229,19 @@ def testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences():
         bSig = bluetoothSignals[key]
         
         if(bSig[0] == "sig"):
-            if((not bSig[1] in signals) or (not bSig[2] in signals[bSig[1]])):
-                logger.warning("Bluetooth signals contained device name: {} signal name: {}, but IR signals did not".format(bSig[1], bSig[2]))
+            deviceName = bSig[1]
+            signalName = bSig[2]
+            
+            if((not deviceName in signals) or (not signalName in signals[deviceName])):
+                logger.warning("Bluetooth signals contained device name: {} signal name: {}, but IR signals did not".format(deviceName, signalName))
                 errors += 1
-            numberOfSignalsMatched += 1
             
         elif(bSig[0] == "seq"):
-            if(not bSig[1] in sequences):
-                logger.warning("Bluetooth signals contained sequence: {}, but the sequence does not exist".format(bSig[1]))
+            sequenceName = bSig[1]
+            
+            if(not sequenceName in sequences):
+                logger.warning("Bluetooth signals contained sequence: {}, but the sequence does not exist".format(sequenceName))
                 errors += 1
-            numberOfSignalsMatched += 1
             
         else:
             logger.error("Bluetooth signals contained a value with parameter: {} instead of seq or sig".format(bSig[0]))
