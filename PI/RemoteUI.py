@@ -9,6 +9,8 @@ Attributes:
         The line used to seperate menus in the terminal UI
 """
 
+import sys
+
 import IRInterface as iri
 import FileHandler as fh
 import BluetoothListener as bl
@@ -298,6 +300,9 @@ def userConfirm(outStr):
         return False
 
 if __name__ == "__main__":
-    mainMenu()
+    if len(sys.argv) > 1 and sys.argv[1] == "-b":
+        startBluetoothListener()
+    else:
+        mainMenu()
 
 

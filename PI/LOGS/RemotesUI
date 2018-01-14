@@ -1,0 +1,20 @@
+2018-01-11 20:47:23,428 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-11 20:47:23,439 - __main__ - DEBUG - Running main menu
+2018-01-11 20:47:25,691 - __main__ - DEBUG - User input: 5 accepted
+2018-01-11 20:49:53,519 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-11 20:49:53,529 - __main__ - DEBUG - Running main menu
+2018-01-11 20:49:55,228 - __main__ - DEBUG - User input: 5 accepted
+2018-01-13 16:41:53,844 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-13 16:41:53,877 - __main__ - DEBUG - Running main menu
+2018-01-13 16:42:03,577 - __main__ - DEBUG - User input: 1 accepted
+2018-01-13 16:42:03,579 - __main__ - DEBUG - Running addDevice Menu
+2018-01-13 16:42:38,980 - __main__ - DEBUG - Attempting to read and backup signals file
+2018-01-13 16:42:38,990 - __main__ - DEBUG - Running main menu
+2018-01-13 16:42:40,940 - __main__ - DEBUG - User input: 1 accepted
+2018-01-13 16:42:40,941 - __main__ - DEBUG - Running addDevice Menu
+2018-01-13 16:42:42,973 - __main__ - DEBUG - Adding new device: TVTest
+2018-01-13 16:42:43,019 - __main__ - DEBUG - Running addDevice Menu
+2018-01-13 16:42:47,363 - __main__ - DEBUG - User exited to main menu
+2018-01-13 16:42:47,364 - __main__ - DEBUG - Running main menu
+2018-01-13 16:42:48,692 - __main__ - DEBUG - User input: 7 accepted
+2018-01-13 16:42:48,693 - __main__ - DEBUG - User exited

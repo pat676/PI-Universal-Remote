@@ -1,1 +1,2 @@
-AppleTVProjector:Canvas:Down:1:Projector:On:1:Reciever:On:1:AppleTV:Home:1
+AppleTVProjectorOn:Reciever:On:0.2:Canvas:Down:0.2:Projector:On:0.2:AppleTV:Home:0.2:Reciever:MediaPlayer:0.2
+AppleTVProjectorOff:Projector:Off:1:Projector:Off:0.2:Reciever:Off:0.2:Canvas:Up:0.2

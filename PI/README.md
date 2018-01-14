@@ -2,7 +2,7 @@ Raspberry Pi:
 
 This folder contains the software part for the pi. It is written for Python 3
 
-setup:
+- Setup:
 
 If you are using a raspberry pi with bluetooth, the UART serial interface that we want to use for communication with the HM-10 bluetooth device is used by the raspberry pis built in bluetooth device. There are a lot of solutions to this problem, but since i am not using the built in bluetooth i chose to disable the built in device. This can be done by opening the terminal and entering:
 
@@ -15,7 +15,6 @@ dtoverlay=pi3-disable-bt
 
 enable_uart=1
 
-
 To save the changes press:
 ctrl+x
 Y
@@ -23,11 +22,29 @@ enter
 
 This might be different in other PI or OS versions.
 
+- This module needs the pigpiod, to autorun this daemon every startup open a terminal and enter:
+
+sudo systemctl enable pigpiod.service
+
+- To autorun the bluetooth listener at startup, first install crontab:
+
+sudo apt-get install gnome-schedule
+
+- Then run: crontab -e and add this line to the file:
+
+@reboot cd "your full path of PI folder" && python3 RemoteUI.py -b
+
+These commands are run as root on startup, so you have to specify path from the root folder (cd /)
+
+Example:
+
+@reboot cd /home/pi/Desktop/UniversalRemote/PI && python3 RemoteUI.py -b
+
 Usage:
 
 Bluetooth signals have to be defined manually. An example file commenting how to do this can be found in the SignalFiles directory
 
-Sequences of several IR-Signals can be defined manually in the sequence file found in the SignalFiles directory, but the program will run without.
+Sequences of several IR-Signals can be defined manually in the sequence file found in the SignalFiles directory, but the program will run without the sequence file.
 
 Run with:
 $:python3 RemoteUI.py
@@ -35,7 +52,8 @@ $:python3 RemoteUI.py
 1) Add devices IR-Signals with the menu
 2) Run a test (currently option 6 in the main menu) to check that all bluetooth signals you defined in the
    bluetooth signals file have a mathing IR-Signal or sequence.
-3) Run the bluetooth listener(Currently option 5 in the main menu)
+3) Run the bluetooth listener(Currently option 5 in the main menu) 
+   If you implemented autorun of bluetooth listener at startup do a reboot instead (Or kill process).
 
 ----------------------------------------------------------------------------
 1.IRInterface.py
