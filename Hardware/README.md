@@ -17,9 +17,10 @@ Hardware list:
 1. Raspberry Pi 3 model B (Other models should work, but might require some changes)
 2. Bluetooth HM-10 device
 3. 2x 2N2222 NPN Transistor (A lot of other transistors will work with minor changes)
-4. 2x 10kOhm resistor
+4. 1x 2k Ohm resistor
+5. 1x 20 Ohm resistor
 5. CHQ1838 IR Receiver (Other IR receivers should work)
-6. 2x IR Led (Most will work, but the range and angle might differ)
+6. 1x IR Led (Most will work, but the range and angle might differ)
 7. Wiring
 
 HM-10 Connections:
@@ -28,15 +29,14 @@ HM-10 Connections:
 2. Connect ground to ground. Suggested Pin: 6
 3. Connect TXD on the HM-10 to pin 10 on the raspberry
 4. Connect RXD on the HM-10 to pin 8 on the raspberry
-   The HM-10 RXD is designed for 3.3V. Since the PI pins are 5V you should use a voltage 
-   divider in order to not damage the HM-10 module
+
 
 IR-leds connections:
 1. Connect the long legs of the IR-Led to 3.3V Suggested PIN: 17
 2. Connect the short leg of the IR-Led to the transistors collector pin(Google the data-sheet
    for your transistor to find the pin-out of your transistor). 
-3. Connect the emitter pin of the transistors to ground
-4. Connect the transistor base to a 10kOhm resistor and connect the other end of the resistor
+3. Connect the emitter pin of the transistors to ground through a 20Ohm resistor
+4. Connect the transistor base to a 2k Ohm resistor and connect the other end of the resistor
    to pin 40. (Other pins can be used, but you have to change the GPIO_OUT constant at the
    top of the IRRemoteControllInterface.py file. These constants use the GPIONumbering, not
    the physical numbering.)
