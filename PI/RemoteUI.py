@@ -26,7 +26,7 @@ logger.debug("Attempting to read and backup signals file")
 IRSignals = fh.readJson(IRSIGNALS_FILE)
 fh.backup(IRSIGNALS_FILE)
 fh.saveJson(IRSIGNALS_DIRECTORY, IRSIGNALS_FILENAME, IRSignals)
-
+BTL = bl.BTListener()
 
 def mainMenu():
     """
@@ -42,17 +42,18 @@ def mainMenu():
                     "4. Remove Signal from device\n"+\
                     "5. Start bluetooth listener\n"+\
                     "6. Test if all bluetooth signals have a matching IR-Signal or sequence\n"+\
-                    "7. Quit\n"
+                    "7. Test if all sequences have matching IR-signals\n"+\
+                    "0. Quit\n"
         
         try:
             choice = int(input(menuText))
             logger.debug("User input: {} accepted".format(choice))
         except ValueError:
             logger.debug("User input not accepted")
-            print("Command invalid, please enter a number between 1 and 6")
+            print("Command invalid, please enter a number between 0 and 7")
             continue
         
-        if(choice == 7):
+        if(choice == 0):
             logger.debug("User exited")
             return
         
@@ -62,13 +63,14 @@ def mainMenu():
                     3: addSignalToDevice,\
                     4: removeSignalFromDeviceSelectDevice,\
                     5: startBluetoothListener,\
-                    6: testIfSignalsMatch\
+                    6: testIfSignalsMatch,\
+                    7: testSequences\
         }
         func = switcher.get(choice, False)
         
         if func == False:
             logger.debug("User entered invalid number in main menu: {}".format(choice))
-            print("Command: {} invalid, please enter a number between 1 and 6\n".format(choice))
+            print("Command: {} invalid, please enter a number between 0 and 7\n".format(choice))
             continue
         else:
             func()
@@ -230,7 +232,7 @@ def startBluetoothListener():
     """
     logging.debug("Starting the bluetooth listener")
     print("Starting the bluetooth listener...")
-    bl.mainLoop(IRSIGNALS_FILE, SEQUENCES_FILE, BLUETOOTH_SIGNALS_FILE)
+    BTL.mainLoop()
 
 
 def testIfSignalsMatch():
@@ -238,8 +240,13 @@ def testIfSignalsMatch():
     Runs a test from bluetooth listener module. The tests checks if every bluetooth signal has a matching
     IR-Signal
     """
-    bl.testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences()
-    
+    BTL.testIfBluetoothSignalsHaveMatchingIRSignalsAndSequences()
+
+def testSequences():
+    """
+    Run a test on every sequence to see if each signal in sequence has a matching IR signal
+    """
+    BTL.testSequenceAgainstIRSignals()    
 
 def presentNumberedListAndGetUserInput(inList, infoStr):
     """
