@@ -23,7 +23,7 @@ RESULTING FROM USING ANY PART OF THIS PROJECT.
 
 Implemented, but not tested:
 
-- Reading and storing IR Signals on the PI and a simply UI To achieve this
+- Reading and storing IR Signals on the PI and a simple UI To achieve this
 - A module listening for bluetooth signals and converting theese to IR-Signals
 - Text description of the hardware connections used.
 

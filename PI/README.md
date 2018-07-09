@@ -6,8 +6,7 @@ This folder contains the software part for the pi. It is written for Python 3
 
 If you are using a raspberry pi with bluetooth, the UART serial interface that we want to use for communication with the HM-10 bluetooth device is used by the raspberry pis built in bluetooth device. There are a lot of solutions to this problem, but since i am not using the built in bluetooth i chose to disable the built in device. This can be done by opening the terminal and entering:
 
-cd /boot/
-sudo nano config.txt
+sudo nano /boot/config.txt
 
 use the arrows to navigate to the bottom of the file and add the two lines:
 

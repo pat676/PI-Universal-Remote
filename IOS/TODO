@@ -1,0 +1,42 @@
+1. Pri
+
+App design:
+
+- Table View design
+- Remote icon instead of i in Main list
+
+Background:
+- Set picker alpha
+- Add possiblity for custom background color
+
+Button design:
+- Different button colors
+- Rounded button corners (Slider?)
+- Different gradient (Slider?)
+- Save last design?
+- Icons for buttons
+
+Help:
+- Main table View empty message
+- Choose Layout poppover table view empty message
+- Layouts table View empty message
+- Help buttons?
+
+Functionality:
+- Change from using device name to device identifier for device-layout connections
+- Fix button layout for different screen sizes
+
+Development:
+- Commenting
+- OSLog
+
+Ideas:
+- Different button types (Joystick)
+- Sliders
+
+Long term:
+- Implement control center
+
+Possible bugs:
+- Doesnt save when app is forced to close (Insted of home button pressed)
+
